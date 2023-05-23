@@ -25,4 +25,21 @@ a {
     padding: 0 15px;
 }
 
-/* You can add more global styles as needed */
+.list-group-item.active {
+    background-color: #e6e6e6 !important;
+    border-color: #e6e6e6 !important;
+    color: black;
+    font-weight: bold;
+}
+
+.list-group-item.disabled {
+    background-color: #f0c7c7 !important;
+    border-color: #f0c7c7 !important;
+    color: black;
+    font-weight: bold;
+}
+
+.list-group {
+    flex: 1;
+    margin-right: 10px;
+}

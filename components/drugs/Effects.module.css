@@ -1,6 +1,14 @@
 /* Effects.module.css */
-
 .header {
     border-bottom: solid 1px #ddd;
     margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.listContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-bottom: 2rem;
 }
