@@ -2,3 +2,17 @@
     border-bottom: solid 1px #ddd;
     margin-top: 0;
 }
+
+.imageContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    margin-bottom: 1.5rem;
+}
+
+.image {
+    flex: 1;
+    max-width: 33%;
+    height: auto;
+    object-fit: cover;
+}

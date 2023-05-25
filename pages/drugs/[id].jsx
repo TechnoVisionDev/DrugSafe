@@ -12,7 +12,7 @@ import Dosage from '../../components/drugs/Dosage';
 const Drug = ({ data }) => {
 
     const sections = [
-        {name: 'Introduction', component: <Introduction drugData={data}/>, icon: <FaSquare />}, 
+        {name: 'Introduction', component: <Introduction info={data.info} images={data.images}/>, icon: <FaSquare />}, 
         {name: 'Effects', component: <Effects effects={data.effects} info={data.info}/>, icon: <FaPills />}, 
         {name: 'Dosage', component: <Dosage routes={data.routes} info={data.info}/>, icon: <FaChartLine />}, 
         {name: 'Trip Reports', component: <></>, icon: <FaComments />}, 
