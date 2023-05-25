@@ -75,8 +75,18 @@ const Drug = ({ data }) => {
 };
 
 export async function getStaticProps({ params }) {
-    // Fetch the drug data from your API or database
-    // This is just a placeholder
+    // Use fetch to get the data for the specific drug
+    const res = await fetch(`http://localhost:3000/api/drugs/${params.id}`);
+    const data = await res.json();
+
+    // If the request failed, throw an error
+    if (!res.ok) {
+        throw new Error(data.message);
+    }
+
+    // Pass the data to the page via props
+    return { props: { data } };
+
     return {
         props: {data : drugData[params.id]}
     };
