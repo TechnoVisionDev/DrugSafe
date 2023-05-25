@@ -3,8 +3,8 @@ import styles from './drug.module.css';
 import { useState, useRef } from 'react';
 import { FaSquare, FaPills, FaChartLine, FaComments, FaExchangeAlt, FaVial, FaShieldAlt, FaExclamationTriangle, FaGavel, FaBook } from 'react-icons/fa';
 import { AiOutlineMenu, AiOutlineClose } from 'react-icons/ai';
+import { drugData } from '../../data/drugs'; 
 import Navbar from '../../components/Navbar';
-import { drugData } from '../../data/drugs';
 import Introduction from '../../components/drugs/Introduction';
 import Effects from '../../components/drugs/Effects';
 import Dosage from '../../components/drugs/Dosage';
@@ -75,29 +75,19 @@ const Drug = ({ data }) => {
 };
 
 export async function getStaticProps({ params }) {
-    // Use fetch to get the data for the specific drug
-    const res = await fetch(`http://localhost:3000/api/drugs/${params.id}`);
+    // Fetch drug data from API
+    const res = await fetch(`${process.env.URL}/api/drugs/${params.id}`);
     const data = await res.json();
-
-    // If the request failed, throw an error
     if (!res.ok) {
         throw new Error(data.message);
     }
-
-    // Pass the data to the page via props
     return { props: { data } };
-
-    return {
-        props: {data : drugData[params.id]}
-    };
 }
 
 export async function getStaticPaths() {
-    // Fetch all drug IDs from your API or database for static generation
-    // This is just a placeholder
-    const drugIds = ['cannabis', 'methamphetamine'];
+    // Fetch all drug IDs for static generation
+    const drugIds = Object.keys(drugData);
     const paths = drugIds.map(id => ({ params: { id } }));
-
     return {
         paths,
         fallback: false

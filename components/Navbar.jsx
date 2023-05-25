@@ -32,7 +32,7 @@ function NavScrollExample() {
               <NavDropdown.Item href="/guides/testing">Reagent Testing</NavDropdown.Item>
               <NavDropdown.Item href="/guides/boofing">Boofing</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="https://discord.com">Discord</Nav.Link>
+            <Nav.Link href="https://discord.gg/s8CFunneAg">Discord</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control
