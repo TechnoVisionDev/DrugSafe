@@ -1,0 +1,13 @@
+.tableContainer {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    gap: 1.5rem;
+}
+
+@media (max-width: 600px) {
+    .tableContainer {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}

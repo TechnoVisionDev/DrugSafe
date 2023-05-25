@@ -7,13 +7,14 @@ import Navbar from '../../components/Navbar';
 import { drugData } from '../../data/drugs';
 import Introduction from '../../components/drugs/Introduction';
 import Effects from '../../components/drugs/Effects';
+import Dosage from '../../components/drugs/Dosage';
 
-const Drug = ({ drugData }) => {
+const Drug = ({ data }) => {
 
     const sections = [
-        {name: 'Introduction', component: <Introduction drugData={drugData}/>, icon: <FaSquare />}, 
-        {name: 'Effects', component: <Effects effects={drugData.effects} />, icon: <FaPills />}, 
-        {name: 'Dosage', component: <></>, icon: <FaChartLine />}, 
+        {name: 'Introduction', component: <Introduction drugData={data}/>, icon: <FaSquare />}, 
+        {name: 'Effects', component: <Effects effects={data.effects} />, icon: <FaPills />}, 
+        {name: 'Dosage', component: <Dosage routes={data.routes} info={data.info}/>, icon: <FaChartLine />}, 
         {name: 'Trip Reports', component: <></>, icon: <FaComments />}, 
         {name: 'Interactions', component: <></>, icon: <FaExchangeAlt />}, 
         {name: 'Reagent Testing', component: <></>, icon: <FaVial />}, 
@@ -37,16 +38,16 @@ const Drug = ({ drugData }) => {
             <Navbar/>
             <div className={styles.container}>
                 <div className={styles.header}>
-                    <img className={styles.drugImage} src={drugData.imageURL} alt={drugData.name} />
-                    <h1 className={styles.drugName}>{drugData.name}</h1>
+                    <img className={styles.drugImage} src={data.icon} alt={data.name} />
+                    <h1 className={styles.drugName}>{data.name}</h1>
                     <p className={styles.drugAliases}>
                         <b>{"-- { "}</b>
-                        {drugData.aliases.join(', ')}
+                        {data.aliases.join(', ')}
                         <b>{" } --"}</b>
                     </p>
                 </div>
 
-                <p className={styles.description}>{drugData.description}</p>
+                <p className={styles.description}>{data.description}</p>
 
                 <div className={styles.main}>
                     <div className={styles.menuIcon} onClick={toggleMenu}>
@@ -77,7 +78,7 @@ export async function getStaticProps({ params }) {
     // Fetch the drug data from your API or database
     // This is just a placeholder
     return {
-        props: {drugData : drugData[params.id]}
+        props: {data : drugData[params.id]}
     };
 }
 

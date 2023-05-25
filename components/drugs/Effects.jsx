@@ -1,11 +1,10 @@
-// pages/drugs/[id].jsx
 import styles from './Effects.module.css';
 import ListGroup from 'react-bootstrap/ListGroup';
 
 const Effects = ({ effects }) => {
     return (
-        <div className={styles.effectsContainer}>
-            <h2 className={styles.header}>Effects</h2>
+        <section className={styles.effectsContainer}>
+            <h2>Effects</h2>
             <p>We have listed the most common effects of this drug. Please note that everyone can be affected differently, and this is not an exhaustive list. Not everyone experiences these effects, and other effects are possible. The way you consume a drug may drastically affect the intensity of the effects. Remember, the likelihood of experiencing negative effects is much greater at high doses.</p>
             <div className={styles.listContainer}>
                 <ListGroup as="ul">
@@ -42,7 +41,7 @@ const Effects = ({ effects }) => {
                     {effects.overdose.map(effect => <ListGroup.Item as="li">{effect}</ListGroup.Item>)}
                 </ListGroup>
             </div>
-        </div>
+        </section>
     );
 }
 

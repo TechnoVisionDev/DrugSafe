@@ -19,6 +19,17 @@ a {
     box-sizing: border-box;
 }
 
+h2 {
+    border-bottom: solid 1px #ddd;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+th {
+    text-align: center;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
