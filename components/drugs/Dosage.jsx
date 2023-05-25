@@ -1,10 +1,10 @@
 import styles from './Dosage.module.css';
 import { Table } from 'react-bootstrap';
 
-const Dosage = ({ routes, info }) => {
+const Dosage = ({routes, info}) => {
     return (
         <section className={styles.effectsContainer}>
-            <h2 className={styles.header}>Dosage</h2>
+            <h2>Dosing {info.name}</h2>
             <p>{info.dosage}</p>
             <div className={styles.tables}>
                 {Object.keys(routes).map((key) =>

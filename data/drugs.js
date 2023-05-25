@@ -10,9 +10,51 @@ export const drugData = {
             after: ["Anxiety", "Depression", "Dehydration", "Fatigue", "Low Motivation",],
             overdose: ["Extreme Anxiety", "Panic Attack", "Uncontrollable Shaking", "High Blood Pressure", "Headache", "Psychosis", "Seizure"]
         },
-        routes: {},
+        routes: {
+            smoked: {
+                route: "Smoked",
+                bioavailability: "<35%",
+                dosage: {
+                    threshold: "0.4 mg THC",
+                    light: "0.4 - 2 mg THC",
+                    common: "2 - 4 mg THC",
+                    strong: "4 - 10 mg THC",
+                    heavy: "10 mg THC +",
+                },
+                duration: {
+                    total: "2.3 - 5 hours",
+                    onset: "0.1 - 10 minutes",
+                    comeup: "5 - 10 minutes",
+                    peak: "15 - 45 minutes",
+                    offset: "3 - 4 hours",
+                    after: "45 - 180 minutes"
+                },
+                instructions: "Smoking is the most common way of consuming cannabis, but it can be harmful to the lungs and respiratory system. Use a pipe, bong, or vaporizer instead of rolling papers to reduce the amount of harmful smoke. Avoid holding the smoke in your lungs for an extended period, as this doesn't increase the high but can cause more damage. Take breaks between hits to allow your body to process the THC and recognize when you're sufficiently high to avoid overconsumption."
+            },
+            oral: {
+                route: "Oral",
+                bioavailability: "<12%",
+                dosage: {
+                    threshold: "1 mg THC",
+                    light: "2.5 - 5 mg THC",
+                    common: "5 - 10 mg THC",
+                    strong: "10 - 25 mg THC",
+                    heavy: "25 mg THC +",
+                },
+                duration: {
+                    total: "4 - 10 hours",
+                    onset: "20 - 60 minutes",
+                    comeup: "30 - 60 minutes",
+                    peak: "1 - 2 hours",
+                    offset: "4 - 6 hours",
+                    after: "6 - 12 hours"
+                },
+                instructions: "Consuming cannabis orally, such as in the form of edibles or tinctures, is a safer alternative to smoking or vaping. However, because it takes longer to feel the effects (up to 2 hours), it can be easy to consume too much. Start with a low dose (5-10mg of THC), wait at least two hours before taking more. Always read the packaging for dosing information, and remember that the effects can be stronger and last longer than when smoked."
+            },
+        },
         info: {
-            dosage: "Given the unpredictable purity and potency of street methamphetamine, it's essential to start with a low dose to assess your body's response. Each time you use a new batch, even from the same source, treat it as an unknown substance due to possible variations in potency. Regular breaks from use can help prevent tolerance build-up, requiring increasingly larger doses for the same effect. Be aware that dosing can be inconsistent when using different routes of administration, and transitioning from one method to another might require dosage adjustments. Above all, remember that it's easier to take more, but impossible to take less after the substance has been consumed. Due to these complexities, extreme caution and mindfulness are necessary when dosing methamphetamine.",
+            name: "Cannabis",
+            dosage: "Cannabis is often smoked or ingested. While ingesting cannabis is better for your lungs, it is often longer lasting and more intense. When dosing cannabis, always start with a small amount. If it's an edible, wait at least two hours before having more as the effects can sneak up on you. If you're smoking, take breaks between hits to let the high set in. Always remember: you can always have more, but you can't have less once it's taken.",
             userTripReports: "Information about user trip reports...",
             interactions: "Information about drug interactions...",
             harmReductionTips: "Information about harm reduction tips...",
@@ -135,6 +177,7 @@ export const drugData = {
             },
         },
         info: {
+            name: "Methamphetamine",
             dosage: "When it comes to taking meth, always start with a small dose, especially with a new batch. It’s critical to purchase a milligram scale in order to dose accurately. Be aware that dosing can be inconsistent when using different routes of administration, and transitioning from one method to another might require dosage adjustments. Taking a break between uses can stop you needing more and more each time. And always remember: it's easier to take more later, but you can't take less once it's in your system. So, go slow and be careful.",
             userTripReports: "Information about user trip reports...",
             interactions: "Information about drug interactions...",
