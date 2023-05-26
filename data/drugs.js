@@ -52,6 +52,17 @@ export const drugData = {
                 instructions: "Consuming cannabis orally, such as in the form of edibles or tinctures, is a safer alternative to smoking or vaping. However, because it takes longer to feel the effects (up to 2 hours), it can be easy to consume too much. Start with a low dose (5-10mg of THC), wait at least two hours before taking more. Always read the packaging for dosing information, and remember that the effects can be stronger and last longer than when smoked."
             },
         },
+        interactions: {
+            caution: ["2C-T-x", "2C-x", "5-MeO-xxT", "Amphetamines", "aMT", "Cocaine", "DMT", "DOx", "LSD", "Mescaline", "Mushrooms", "25x-NBOMe"],
+            unsafe: [],
+            dangerous: []
+        },
+        harmReduction: [
+            {
+                header: "Be patient with edibles. It can take up to 2 hours for effects to begin.",
+                body: "Edibles have a tendency to sneak up on you. It can sometimes take up to 3 hours to feel the full effects of a recently ingested edible. That being said, you don’t want to prematurely redose only to end up being way higher than you expected. Always be patient with edibles and wait at least 2 hours before you consider redosing."
+            },
+        ],
         info: {
             name: "Cannabis",
             introduction: "Cannabis, also commonly known as marijuana, weed, or pot, is a psychoactive plant that has been used by humans for thousands of years. The plant contains various chemical compounds, with the most notable being tetrahydrocannabinol (THC) and cannabidiol (CBD). THC is primarily responsible for the 'high' or psychoactive effects, while CBD has therapeutic properties without causing a high.\n People consume cannabis in various forms - it can be smoked, vaporized, eaten in edibles, or applied topically. Its effects can include feelings of relaxation and euphoria, altered sensory perception, and increased appetite, but it can also cause anxiety or paranoia in some individuals. While not as harmful as some substances, misuse can still lead to mental health issues or dependency.",
@@ -61,7 +72,7 @@ export const drugData = {
             comedown: "After the high of cannabis wears off, you might feel tired or a bit foggy. You could feel hungry – people often call this the \"munchies\". Some people might feel a bit anxious or paranoid, but this usually passes. Rest, hydration, and a good meal can usually help you feel normal again.",
             overdose: "Overdoing it with cannabis is usually not dangerous, but it can be uncomfortable. You might feel paranoid or anxious. You could feel dizzy, have a fast heart rate, or even feel like you're \"greening out\" – this is when you feel sick, sweaty, and might throw up. The best thing to do is try to relax, find a quiet place where you can lie down, and remember that these feelings will pass. It can help to have someone around who knows what's happening and can keep an eye on you.",
             dosage: "Cannabis is often smoked or ingested. While ingesting cannabis is better for your lungs, it is often longer lasting and more intense. When dosing cannabis, always start with a small amount. If it's an edible, wait at least two hours before having more as the effects can sneak up on you. If you're smoking, take breaks between hits to let the high set in. Always remember: you can always have more, but you can't have less once it's taken.",
-        
+            interactions: "Cannabis interactions are an important consideration for users. Combining cannabis with other substances can influence its effects, potentially heightening certain health risks or altering the drug's effectiveness. The chart below details specific interactions between cannabis and other substances. Please note that this information should be used for harm reduction purposes, and combining substances should always be approached with extreme caution.",
         },
         images: [
             "https://cdn.adf.org.au/media/images/cannabis.width-1524.jpg",
@@ -182,6 +193,45 @@ export const drugData = {
                 instructions: "Injecting methamphetamine is the riskiest method due to potential for overdose, vein damage, abscesses, and transmission of diseases like HIV and Hepatitis C. It's crucial to use a clean, unused needle each time. Never share needles or other injection equipment. Start with a low dose, draw up through a sterile cotton filter, and clean the injection site with an alcohol wipe beforehand. Always seek out a safe, relaxed environment, ideally with someone who can help in case of an emergency."
             },
         },
+        interactions: {
+            caution: ["Alcohol", "GHB", "GBL", "Opioids", "Cocaine", "Cannabis", "Caffeine", "Ketamine", "Methoxetamine", "Psychadelics"],
+            unsafe: ["DXM", "PCP", "25x-NBOMe", "2C-T-x", "5-MeO-xxT", "DOx"],
+            dangerous: ["Tramadol", "aMT", "MAOIs"]
+        },
+        harmReduction: [
+            {
+                header: "Stick to NO MORE than one dose for any given day.",
+                body: "This is the most crucial rule to follow! When you use stimulants, they will temporarily hijack your dopamine reward system. Once the peak euphoria starts to fade, you will have a biological response to crave more. This is the same system that makes you crave food, sex, and anything pleasurable in life and is extremely hard to fight against. This feeling tends to disappear as soon as you have fully come down around the 10-12 hour mark (and in fact the thought of redosing actually starts to feel kinda gross). You simply need to endure through a few hours of cravings and then you’re home free. Not to mention that redosing will amplify your comedown side effects exponentially. It’s simply NOT worth it when you could just eat, sleep, and have an awesome time dosing the next morning instead."
+            },
+            {
+                header: "Set an alarm to go off every 2 hours to remind you to eat and hydrate.",
+                body: "Most stimulants suppress appetite heavily and its actually surprisingly easy to begin starving by accident during a long binge. In fact, many people are shocked to discover that the vast majority of the 24-hour comedown symptoms of meth and amphetamines are actually just a result of poor nutrition or hydration. What helps a lot is setting an alarm to go off on your phone every 2 hours from the moment you dose to remind you to eat and drink. It sounds silly, but when you’re peaking on stimulants you can easily get locked into whatever you’re doing, sometimes for hours or days. This alarm will shift your focus away from whatever you’re doing and provide an opportunity to break away and grab a snack with a glass of water. I know it’s easy to eat a ton of fruit and sweets while on stimulants, but please try to eat a variety of nutritious food instead. When all else fails, a big glass of milk is an excellent source of protein and nutrients."
+            },
+            {
+                header: "Lingering body odor may be a sign of rhabdomyolysis.",
+                body: "Sometimes while using meth you may encounter a horrible stench of ammonia that seems to soak into every piece of clothing. A lot of people think this is just due to excessive sweating, but it is actually a byproduct of rhabdomyolysis happening in your body and is a clear sign that you need to eat ASAP. When you take a stimulant that suppresses appetite you often don’t eat much (potentially for days) and so your body needs to look elsewhere for energy and nutrients. It does this by metabolizing your own muscles into protein, resulting in the loss of that muscle. The byproduct of this is ammonia, which is toxic to your body. As a result, your body tries to get rid of it as quick as possible, either through urine or sweat. This can also happen from dehydration as well, though eating usually gives your body some water as well. If you follow tip #2 you will notice that you don’t smell horrible at the end of the day (apart from the regular body odor that comes with sweating)."
+            },
+            {
+                header: "Listen for unusual clues from your body that you need food. They can be VERY easy to misinterpret.",
+                body: "Most stimulants suppress appetite heavily. This doesn’t mean that your body suddenly doesn’t need food, its just temporarily unable to use the mesolimbic reward pathway to signal hunger in the way you typically recognize it. As a result, long binges or daily use can lead people down a dangerous road to starvation without even realizing it. If you find yourself in a situation like this, you need to pay attention to the other ways that your body is trying to signal to you that it desperately needs food. Often these signals can ‘seem’ like a need to redose, but this is misguided. If you suddenly find that your high has started to take a more anxious, numb, or unpleasant experience, this likely is a sign! "
+            },
+            {
+                header: "Invest in Ensure or Boost protein shakes.",
+                body: "These protein shakes may save your life! Each one contains around 360 calories and 25% daily value of most essential vitamins and minerals. They are shockingly easy to drink, even when you’re so high that it feels like you need to relearn how to swallow. If you are a daily user or prone to binges, you absolutely must keep these stocked in your fridge! If you find yourself in a situation like tip #3 and are unable to eat anything, these shakes just might prevent a trip to the hospital. Just make sure not to drink more than 3 in a day as they contain many fat soluble vitamins (Vit A, D, E, K) and you can definitely overdose on those. I would also avoid any multivitamins for 24 hours if you decide to drink a few of these shakes as that could also lead to vitamin overdose."
+            },
+            {
+                header: "200-400mg of Magnesium Glycinate will prevent or slow tolerance and sensitization to most stimulants.",
+                body: "There is preclinical evidence that magnesium glycinate has the potential to block both sensitization and tolerance to stimulants. This is due to magnesium being an NMDA antagonist. It also replenishes an essential electrolyte that you brain uses for nearly every function, and which stimulants deplete heavily. In fact, did you know that 70% of Americans are already deficient in magnesium due to poor soil quality? The symptoms of deficiency are anxiety, depression, depersonalization, headache, and more!"
+            },
+            {
+                header: "Vomiting or muscle aches may be a sign of low electrolytes.",
+                body: "If you notice vomiting, muscle aches, or blacking out while standing up, then grab a Gatorade or Powerade and chug it! Stimulants tend to deplete electrolytes faster than usual because of the strain they put on your body. Just be careful to not overdo it, as too many electrolytes can cause it's own problems."
+            },
+            {
+                header: "Do not make important or life altering decisions or select sex partners while on stimulants. You will likely regret your choice later.*",
+                body: "Methamphetamine has a habit of making you feel invincible and impulsive. In the moment you feel so confidence that the future really is of no concern to you… but this is an illusion… and pretty soon you’ll be dealing with the consequences while sober (gasp!). If you are about to make a big purchase, sign a contract, propose, or any other big decision, you should really just save it for the next morning no matter how confident you feel about it. And when selecting sexual partners ALWAYS use protection and ask yourself if you would actually have sex with this person if you were sober."
+            }
+        ],
         info: {
             name: "Methamphetamine",
             introduction: "Methamphetamine, often known simply as 'meth', is a highly potent and addictive psychoactive drug. It typically takes the form of a white, odorless, and bitter-tasting crystalline powder. There are various methods of intake, including swallowing, snorting, smoking, or injecting. Meth stimulates the brain, resulting in a rush of energy and focus, but it can also induce feelings of anxiety, irritability, and paranoia. Despite its potent high, meth is a highly dangerous and illegal substance in many jurisdictions, primarily due to its potential for addiction, health damage, and societal harm.",
@@ -191,6 +241,7 @@ export const drugData = {
             comedown: "Coming down from meth can be tough. It often leads to extreme tiredness, depression, and increased appetite. You might have trouble sleeping and feel anxious, restless, or irritable. The comedown can last several days, and taking care of your body during this time - hydrating, eating, resting - is very important.",
             overdose: "A meth overdose can be life-threatening. Signs include chest pain, high body temperature, fast or irregular heartbeat, trouble breathing, and feeling really agitated or paranoid. In severe cases, it can lead to a stroke, heart attack, or death. If you think someone might be overdosing, this is a medical emergency. Stay with them and call for help right away.",
             dosage: "When it comes to taking meth, always start with a small dose, especially with a new batch. It’s critical to purchase a milligram scale in order to dose accurately. Be aware that dosing can be inconsistent when using different routes of administration, and transitioning from one method to another might require dosage adjustments. Taking a break between uses can stop you needing more and more each time. And always remember: it's easier to take more later, but you can't take less once it's in your system. So, go slow and be careful.",
+            interactions: "Interactions with methamphetamine, a potent stimulant, can lead to severe health risks. Using meth in combination with other substances can amplify these risks, alter drug efficacy, and hasten dependency. Below, you'll find a detailed interactions chart for methamphetamine. Please note that this information should be used for harm reduction purposes, and combining substances should always be approached with extreme caution.",
         },
         images: [
             "https://cdn.adf.org.au/media/images/amphetamines-social.width-1524.jpg",

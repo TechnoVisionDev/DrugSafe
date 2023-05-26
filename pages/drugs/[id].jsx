@@ -8,6 +8,8 @@ import Navbar from '../../components/Navbar';
 import Introduction from '../../components/drugs/Introduction';
 import Effects from '../../components/drugs/Effects';
 import Dosage from '../../components/drugs/Dosage';
+import Interactions from '../../components/drugs/Interactions';
+import HarmReduction from '../../components/drugs/HarmReduction';
 
 const Drug = ({ data }) => {
 
@@ -16,9 +18,9 @@ const Drug = ({ data }) => {
         {name: 'Effects', component: <Effects effects={data.effects} info={data.info}/>, icon: <FaPills />}, 
         {name: 'Dosage', component: <Dosage routes={data.routes} info={data.info}/>, icon: <FaChartLine />}, 
         {name: 'Trip Reports', component: <></>, icon: <FaComments />}, 
-        {name: 'Interactions', component: <></>, icon: <FaExchangeAlt />}, 
+        {name: 'Interactions', component: <Interactions interactions={data.interactions} info={data.info}/>, icon: <FaExchangeAlt />}, 
         {name: 'Reagent Testing', component: <></>, icon: <FaVial />}, 
-        {name: 'Harm Reduction', component: <></>, icon: <FaShieldAlt />}, 
+        {name: 'Harm Reduction', component: <HarmReduction harmReduction={data.harmReduction}/>, icon: <FaShieldAlt />}, 
         {name: 'Risks', component: <></>, icon: <FaExclamationTriangle />}, 
         {name: 'The Law', component: <></>, icon: <FaGavel />}, 
         {name: 'References', component: <></>, icon: <FaBook />}

@@ -1,0 +1,23 @@
+.caution {
+    background-color: #d5c625;
+    color: white;
+}
+
+.unsafe {
+    background-color: #d98427;
+    color: white;
+}
+
+.dangerous {
+    background-color: #d12128;
+    color: white;
+}
+
+.tableBody {
+    text-align: center;
+    font-weight: bold;
+}
+
+.header {
+    margin-top: 2rem;
+}
