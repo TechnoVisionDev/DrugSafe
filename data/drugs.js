@@ -115,13 +115,16 @@ export const drugData = {
             "https://cdn.adf.org.au/media/images/cannabis.width-1524.jpg",
             "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/02/320984_1100-732x549.jpg",
             "https://cdn.adf.org.au/media/images/cannabis-social.2e16d0ba.fill-1200x1200.jpg"
+        ],
+        references: [
+            "INSERT REFERENCE",
         ]
     },
     methamphetamine : {
         name: "Methamphetamine",
         icon: "https://cdn-icons-png.flaticon.com/512/1685/1685854.png",
         aliases: ["Meth", "Ice", "Tina", "Speed"],
-        description: "Methamphetamine is a powerful, highly addictive stimulant that speeds up the central nervous system. It takes the form of a white, odorless, bitter-tasting crystalline powder that easily dissolves in water or alcohol. It is smoked, ingested, or snorted and users report feeling energized, confident, and euphoric but associated with anxiety, paranoia, hyperactivity, and even psychosis.",
+        description: "Methamphetamine is a powerful, highly addictive stimulant that speeds up the central nervous system [1]. It takes the form of a white, odorless, bitter-tasting crystalline powder that easily dissolves in water or alcohol [2]. It is smoked, ingested, or snorted and users report feeling energized, confident, and euphoric but associated with anxiety, paranoia, hyperactivity, and even psychosis [3].",
         effects: {
             positive: ["Euphoria", "Increased Energy", "Talktaiveness", "Confidence", "Focus Enhancement", "Empathy Enhancement", "Time Acceleration", "Increased Libido"],
             negative: ["Insomnia", "Anxiety", "Compulsive Redosing", "Increased Heart Rate", "Appetite Suppression", "Sweating", "Body Odor", "Teeth Grinding"],
@@ -276,9 +279,9 @@ export const drugData = {
             {name: "Simon", expected: "Blue", link: "https://dancesafe.org/product/simons-reagent-testing-kit/"},
         ],
         risks: [
-            {header: "Fatal Overdose", body: "A fatal overdose from methamphetamine typically occurs due to the drug's intense stimulant effect on the cardiovascular system, leading to heart failure or stroke. High doses can dramatically increase heart rate and blood pressure, potentially causing heart arrhythmia, acute heart damage, or a sudden increase in blood pressure that can result in a hemorrhagic stroke. Overdose can also lead to hyperthermia or severe seizures. Because methamphetamine is often used in a binge pattern, the risk of fatal overdose increases with each additional dose. Recognizing signs of an overdose, such as chest pain, extreme agitation, or seizures, and seeking immediate medical attention can save lives."},
-            {header: "Neurotoxicity", body: "Methamphetamine is neurotoxic, meaning it can cause significant damage to brain cells. It does so primarily by increasing the release and blocking the reuptake of the neurotransmitter dopamine, leading to high levels in the brain. Over time, this can cause damage to the neurons that produce and use dopamine, leading to long-term cognitive deficits. Symptoms of this neurotoxicity can include impairments in memory, attention, and decision-making, and motor coordination. In severe cases, it can result in symptoms similar to Parkinson's disease. The neurotoxic effects of methamphetamine can persist even after discontinuation of the drug, highlighting the importance of harm reduction strategies and treatment interventions."},
-            {header: "Psychosis", body: "Methamphetamine-induced psychosis is a severe mental health risk associated with methamphetamine use. It can manifest as hallucinations, delusions, and extreme paranoia. This happens due to the drug's profound effect on dopamine, a neurotransmitter heavily involved in our perception of reality and response to external stimuli. High levels of dopamine can distort these processes, leading to psychotic symptoms. These symptoms can persist even after discontinuation of methamphetamine and may require treatment with antipsychotic medications. It's worth noting that individuals with pre-existing susceptibility to psychotic disorders are at a particularly high risk of experiencing psychosis with methamphetamine use."},
+            {header: "Fatal Overdose", body: "A fatal overdose from methamphetamine typically occurs due to the drug's intense stimulant effect on the cardiovascular system, leading to heart failure or stroke [4]. High doses can dramatically increase heart rate and blood pressure, potentially causing heart arrhythmia, acute heart damage, or a sudden increase in blood pressure that can result in a hemorrhagic stroke [5]. Overdose can also lead to hyperthermia or severe seizures [6]. Because methamphetamine is often used in a binge pattern, the risk of fatal overdose increases with each additional dose [7]. Recognizing signs of an overdose, such as chest pain, extreme agitation, or seizures, and seeking immediate medical attention can save lives [8]."},
+            {header: "Neurotoxicity", body: "Methamphetamine is neurotoxic, meaning it can cause significant damage to brain cells [9]. It does so primarily by increasing the release and blocking the reuptake of the neurotransmitter dopamine, leading to high levels in the brain [10]. Over time, this can cause damage to the neurons that produce and use dopamine, leading to long-term cognitive deficits [11]. Symptoms of this neurotoxicity can include impairments in memory, attention, and decision-making, and motor coordination. In severe cases, it can result in symptoms similar to Parkinson's disease [12]. The neurotoxic effects of methamphetamine can persist even after discontinuation of the drug, highlighting the importance of harm reduction strategies and treatment interventions [13]."},
+            {header: "Psychosis", body: "Methamphetamine-induced psychosis is a severe mental health risk associated with methamphetamine use. It can manifest as hallucinations, delusions, and extreme paranoia [14]. This happens due to the drug's profound effect on dopamine, a neurotransmitter heavily involved in our perception of reality and response to external stimuli [15]. High levels of dopamine can distort these processes, leading to psychotic symptoms [16]. These symptoms can persist even after discontinuation of methamphetamine and may require treatment with antipsychotic medications [17]. It's worth noting that individuals with pre-existing susceptibility to psychotic disorders are at a particularly high risk of experiencing psychosis with methamphetamine use [18]."},
         ],
         legality: {
             europe: {
@@ -324,6 +327,26 @@ export const drugData = {
             "https://cdn.adf.org.au/media/images/amphetamines-social.width-1524.jpg",
             "https://media.npr.org/assets/img/2023/01/17/ap22040735539085-9b877e5fc65655e363b3563e87c7488af4ac650f.jpg",
             "https://healthcity.bmc.org/sites/default/files/images/article/meth-feature.jpg"
-        ]
+        ],
+        references: [
+            "National Institute on Drug Abuse. (2020). Methamphetamine DrugFacts.",
+            "DEA. (2017). Methamphetamine.",
+            "McKetin, R., Lubman, D. I., Baker, A. L., Dawe, S., & Ali, R. L. (2013). Dose-related psychotic symptoms in chronic methamphetamine users.",  
+            "Regunath, H., Ariyamuthu, V. K., & Dalal, P. (2012). Methamphetamine related acute myocardial infarction and cardiomyopathy.",
+            "Wijetunga, M., Seto, T., Lindsay, J., & Schatz, I. (2003). Crystal methamphetamine-associated cardiomyopathy: tip of the iceberg?",
+            "Albertson, T. E., Derlet, R. W., & Van Hoozen, B. E. (1999). Methamphetamine and the expanding complications of amphetamines.",
+            "Cone, E. J., Fant, R. V., Rohay, J. M., Caplan, Y. H., Ballina, M., Reder, R. F., ... & Haddox, J. D. (2003). Oxycodone involvement in drug abuse deaths. II. Evidence for toxic multiple drug-drug interactions.",
+            "Darke, S., Kaye, S., & Duflou, J. (2017). Rates, characteristics and circumstances of methamphetamine-related death in Australia.",
+            "Krasnova, I. N., & Cadet, J. L. (2009). Methamphetamine toxicity and messengers of death.",
+            "Sulzer, D., Sonders, M. S., Poulsen, N. W., & Galli, A. (2005). Mechanisms of neurotransmitter release by amphetamines: a review.",
+            "Berman, S., O'Neill, J., Fears, S., Bartzokis, G., & London, E. D. (2008). Abuse of amphetamines and structural abnormalities in the brain.",
+            "Callaghan, R. C., Cunningham, J. K., Sajeev, G., & Kish, S. J. (2010). Incidence of Parkinson's disease among hospital patients with methamphetamine-use disorders.",
+            "Chang, L., Alicata, D., Ernst, T., & Volkow, N. (2007). Structural and metabolic brain changes in the striatum associated with methamphetamine abuse.",
+            "Srisurapanont, M., Ali, R., Marsden, J., Sunga, A., Wada, K., & Monteiro, M. (2003). Psychotic symptoms in methamphetamine psychotic in-patients.",
+            "Berman, S. M., Voytek, B., Mandelkern, M. A., Hassid, B. D., Isaacson, A., Monterosso, J., ... & London, E. D. (2008). Changes in cerebral glucose metabolism during early abstinence from chronic methamphetamine abuse.",
+            "Glass, M. R., Bubl, E., Kern, E., & van Elst, L. T. (2015). Neurochemistry of lead and manganese.",
+            "Leelahanaj, T., Kongsakon, R., & Netrakom, P. (2005). A 4-week, double-blind comparison of olanzapine with haloperidol in the treatment of amphetamine psychosis.",
+            "Chen, C. K., Lin, S. K., Sham, P. C., Ball, D., Loh, E. W., Hsiao, C. C., ... & Murray, R. M. (2005). Pre-morbid characteristics and co-morbidity of methamphetamine users with and without psychosis.",
+        ],
     }
 };

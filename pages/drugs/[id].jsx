@@ -13,6 +13,7 @@ import HarmReduction from '../../components/drugs/HarmReduction';
 import Testing from '../../components/drugs/Testing';
 import Risks from '../../components/drugs/Risks';
 import Law from '../../components/drugs/Law';
+import References from '../../components/drugs/References';
 
 const Drug = ({ data }) => {
 
@@ -26,7 +27,7 @@ const Drug = ({ data }) => {
         {name: 'Harm Reduction', component: <HarmReduction harmReduction={data.harmReduction}/>, icon: <FaShieldAlt />}, 
         {name: 'Risks', component: <Risks risks={data.risks}/>, icon: <FaExclamationTriangle />}, 
         {name: 'The Law', component: <Law legality={data.legality} info={data.info} />, icon: <FaGavel />}, 
-        {name: 'References', component: <></>, icon: <FaBook />}
+        {name: 'References', component: <References references={data.references}/>, icon: <FaBook />}
     ];
 
     const [selectedSection, setSelectedSection] = useState(sections[0]);
