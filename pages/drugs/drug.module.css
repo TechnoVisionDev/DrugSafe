@@ -41,14 +41,6 @@
     text-align: center;
 }
 
-.main {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    margin-top: 2rem;
-    width: 100%;
-}
-
 .sectionIcon {
     width: 20px;
     height: 20px;
@@ -58,6 +50,15 @@
     display: none;
     font-size: 2rem;
     cursor: pointer;
+}
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    width: 100%;
 }
 
 .sections {
@@ -93,16 +94,16 @@
 .sectionButton:hover {
     background: #ddd;
     box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
-    transform: scale(1.05); /* This will make the button slightly bigger when hovered */
-}
-
-.sectionButton.active {
-    background: #ccc; /* This will make the active button slightly darker */
-    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
 }
 
 .selectedButton {
     background: gray;
+}
+
+.sectionButton.active {
+    background: #ccc;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .sectionContent {
@@ -117,17 +118,14 @@
         flex-direction: column;
     }
 
-    .menuIcon {
-        display: block;
-    }
-
     .sections {
-        display: none;
-        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
     }
 
-    .visible {
-        display: flex;
+    .sectionButton {
+        width: calc(50% - 2rem);
     }
 
     .sectionContent {
@@ -135,3 +133,4 @@
         max-width: 100%;
     }
 }
+

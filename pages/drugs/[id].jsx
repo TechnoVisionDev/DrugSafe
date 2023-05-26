@@ -32,13 +32,6 @@ const Drug = ({ data }) => {
     ];
 
     const [selectedSection, setSelectedSection] = useState(sections[0]);
-    const [menuVisible, setMenuVisible] = useState(false);
-    const dropdownRef = useRef(null);
-
-    const toggleMenu = () => {
-        setMenuVisible(!menuVisible);
-        dropdownRef.current.focus();
-    };
 
     return (
         <>
@@ -57,14 +50,11 @@ const Drug = ({ data }) => {
                 <p className={styles.description}>{data.description}</p>
 
                 <div className={styles.main}>
-                    <div className={styles.menuIcon} onClick={toggleMenu}>
-                        {menuVisible ? <AiOutlineClose /> : <AiOutlineMenu />}
-                    </div>
-                    <div ref={dropdownRef} tabIndex="-1" onBlur={() => setMenuVisible(false)} className={`${styles.sections} ${menuVisible ? styles.visible : ''}`}>
+                    <div className={styles.sections}>
                         {sections.map((section) => (
                             <button 
                                 key={section.name} 
-                                onClick={() => { setSelectedSection(section); setMenuVisible(false); }} 
+                                onClick={() => { setSelectedSection(section); }} 
                                 className={`${styles.sectionButton} ${selectedSection.name == section.name ? styles.active : ''}`}
                             >
                                 {section.icon} {section.name}
