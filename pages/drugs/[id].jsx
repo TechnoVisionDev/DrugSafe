@@ -14,6 +14,7 @@ import Testing from '../../components/drugs/Testing';
 import Risks from '../../components/drugs/Risks';
 import Law from '../../components/drugs/Law';
 import References from '../../components/drugs/References';
+import TripReports from '../../components/drugs/TripReports';
 
 const Drug = ({ data }) => {
 
@@ -21,7 +22,7 @@ const Drug = ({ data }) => {
         {name: 'Introduction', component: <Introduction info={data.info} images={data.images}/>, icon: <FaSquare />}, 
         {name: 'Effects', component: <Effects effects={data.effects} info={data.info}/>, icon: <FaPills />}, 
         {name: 'Dosage', component: <Dosage routes={data.routes} info={data.info}/>, icon: <FaChartLine />}, 
-        {name: 'Trip Reports', component: <></>, icon: <FaComments />}, 
+        {name: 'Trip Reports', component: <TripReports/>, icon: <FaComments />}, 
         {name: 'Interactions', component: <Interactions interactions={data.interactions} info={data.info}/>, icon: <FaExchangeAlt />}, 
         {name: 'Reagent Testing', component: <Testing testing={data.testing} info={data.info}/>, icon: <FaVial />}, 
         {name: 'Harm Reduction', component: <HarmReduction harmReduction={data.harmReduction}/>, icon: <FaShieldAlt />}, 

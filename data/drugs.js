@@ -124,7 +124,7 @@ export const drugData = {
         name: "Methamphetamine",
         icon: "https://cdn-icons-png.flaticon.com/512/1685/1685854.png",
         aliases: ["Meth", "Ice", "Tina", "Speed"],
-        description: "Methamphetamine is a powerful, highly addictive stimulant that speeds up the central nervous system [1]. It takes the form of a white, odorless, bitter-tasting crystalline powder that easily dissolves in water or alcohol [2]. It is smoked, ingested, or snorted and users report feeling energized, confident, and euphoric but associated with anxiety, paranoia, hyperactivity, and even psychosis [3].",
+        description: "Methamphetamine is a powerful, highly addictive stimulant that speeds up the central nervous system. It takes the form of a white, odorless, bitter-tasting crystalline powder that easily dissolves in water or alcohol. It is smoked, ingested, or snorted and users report feeling energized, confident, and euphoric but associated with anxiety, paranoia, hyperactivity, and even psychosis.",
         effects: {
             positive: ["Euphoria", "Increased Energy", "Talktaiveness", "Confidence", "Focus Enhancement", "Empathy Enhancement", "Time Acceleration", "Increased Libido"],
             negative: ["Insomnia", "Anxiety", "Compulsive Redosing", "Increased Heart Rate", "Appetite Suppression", "Sweating", "Body Odor", "Teeth Grinding"],
