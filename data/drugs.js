@@ -71,6 +71,33 @@ export const drugData = {
             {header: "Youth Neurotoxicity", body: "Cannabis use during adolescence, a critical period for brain development, presents a substantial risk for neurotoxic effects. THC, the primary psychoactive component in cannabis, interacts with the endocannabinoid system, which plays a significant role in the development and function of various brain regions. Research suggests that early, regular, and heavy cannabis use can disrupt normal neurodevelopmental processes, potentially leading to long-lasting cognitive deficits. This could impact functions like memory, attention, processing speed, and executive functions like decision-making. Given that the brain continues to develop into the mid-twenties, these risks are not limited to younger teenagers but also apply to young adults."},
             {header: "Depression", body: "Long-term use of cannabis is associated with an increased risk of depression. Though the precise mechanisms remain under study, it is thought that chronic cannabis use may lead to alterations in various neurological processes, including neurotransmitter function and neural connectivity. Over time, these changes could contribute to depressive symptoms or make an individual more susceptible to developing a depressive disorder. This risk may be higher in individuals with a genetic predisposition to depression or those who began using cannabis at a young age. Additionally, the relationship between cannabis and depression may be bidirectional, with depression potentially leading to increased cannabis use, and vice versa, creating a vicious cycle that can be difficult to break."},
         ],
+        legality: {
+            europe: {
+                uk: "Illegal - exceptions exist for use of certain medical cannabis products by prescription.",
+                germany: "Illegal for recreational use - medical use is legal with a prescription.",
+                france: "Illegal - exceptions exist for use of certain medical cannabis products.",
+                netherlands: "Decriminalised - personal use and possession in small quantities are tolerated, especially in designated coffee shops.",
+                spain: "Decriminalised for private use and cultivation - public use and sale are illegal.",
+                russia: "Illegal",
+            },
+            america: {
+                usa: "Varies by state - legal for medical use in many states and for recreational use in some; remains illegal under federal law.",
+                canada: "Legal for medical and recreational use.",
+                mexico: "Decriminalised - supreme court has ruled that individuals have the right to grow and distribute for personal use.",
+            },
+            asia: {
+                hk: "Illegal",
+                singapore: "Illegal",
+                israel: "Illegal for recreational use - medical use is legal with a prescription."
+            },
+            africa: {
+                southafrica: "Personal use and cultivation decriminalized."
+            },
+            australia: {
+                australia: "Varies by state - generally legal for medical use and illegal for recreational use, with some exceptions.",
+                newzealand: "Illegal - Exceptions exist for use of certain medical cannabis products."
+            }
+        },
         info: {
             name: "Cannabis",
             introduction: "Cannabis, also commonly known as marijuana, weed, or pot, is a psychoactive plant that has been used by humans for thousands of years. The plant contains various chemical compounds, with the most notable being tetrahydrocannabinol (THC) and cannabidiol (CBD). THC is primarily responsible for the 'high' or psychoactive effects, while CBD has therapeutic properties without causing a high.\n People consume cannabis in various forms - it can be smoked, vaporized, eaten in edibles, or applied topically. Its effects can include feelings of relaxation and euphoria, altered sensory perception, and increased appetite, but it can also cause anxiety or paranoia in some individuals. While not as harmful as some substances, misuse can still lead to mental health issues or dependency.",
@@ -82,6 +109,7 @@ export const drugData = {
             dosage: "Cannabis is often smoked or ingested. While ingesting cannabis is better for your lungs, it is often longer lasting and more intense. When dosing cannabis, always start with a small amount. If it's an edible, wait at least two hours before having more as the effects can sneak up on you. If you're smoking, take breaks between hits to let the high set in. Always remember: you can always have more, but you can't have less once it's taken.",
             interactions: "Cannabis interactions are an important consideration for users. Combining cannabis with other substances can influence its effects, potentially heightening certain health risks or altering the drug's effectiveness. The chart below details specific interactions between cannabis and other substances. Please note that this information should be used for harm reduction purposes, and combining substances should always be approached with extreme caution.",
             testing: "For substances like cannabis, reagent testing is a key step for harm reduction. This process allows for the identification of any unexpected substances that might have been added, thereby helping avoid potential adverse effects. Given the increasing prevalence of synthetic cannabinoids, it's important to verify the contents of your cannabis. The Duquenois-Levine reagent is often used to confirm the presence of cannabinoids. Additionally, testing for fentanyl, a highly potent and dangerous opioid, is also becoming crucial due to instances of cross-contamination. Fentanyl test strips can be used to identify this potentially lethal adulterant.",
+            legality: "Cannabis laws vary significantly by country and even within countries. While some countries have decriminalized or legalized cannabis for medical or recreational use, others continue to enforce strict prohibitions. Here's a brief overview of cannabis laws in some countries:",
         },
         images: [
             "https://cdn.adf.org.au/media/images/cannabis.width-1524.jpg",
@@ -252,6 +280,33 @@ export const drugData = {
             {header: "Neurotoxicity", body: "Methamphetamine is neurotoxic, meaning it can cause significant damage to brain cells. It does so primarily by increasing the release and blocking the reuptake of the neurotransmitter dopamine, leading to high levels in the brain. Over time, this can cause damage to the neurons that produce and use dopamine, leading to long-term cognitive deficits. Symptoms of this neurotoxicity can include impairments in memory, attention, and decision-making, and motor coordination. In severe cases, it can result in symptoms similar to Parkinson's disease. The neurotoxic effects of methamphetamine can persist even after discontinuation of the drug, highlighting the importance of harm reduction strategies and treatment interventions."},
             {header: "Psychosis", body: "Methamphetamine-induced psychosis is a severe mental health risk associated with methamphetamine use. It can manifest as hallucinations, delusions, and extreme paranoia. This happens due to the drug's profound effect on dopamine, a neurotransmitter heavily involved in our perception of reality and response to external stimuli. High levels of dopamine can distort these processes, leading to psychotic symptoms. These symptoms can persist even after discontinuation of methamphetamine and may require treatment with antipsychotic medications. It's worth noting that individuals with pre-existing susceptibility to psychotic disorders are at a particularly high risk of experiencing psychosis with methamphetamine use."},
         ],
+        legality: {
+            europe: {
+                uk: "Illegal",
+                germany: "Illegal – possession of small quantities for personal use is not usually prosecuted, with a focus on treatment over punishment.",
+                france: "Illegal",
+                netherlands: "Illegal",
+                spain: "Illegal",
+                russia: "Illegal",
+            },
+            america: {
+                usa: "Illegal - limited legal use for specific medical conditions under prescription.",
+                canada: "Illegal",
+                mexico: "Illegal",
+            },
+            asia: {
+                hk: "Illegal",
+                singapore: "Illegal",
+                israel: "Illegal"
+            },
+            africa: {
+                southafrica: "Illegal"
+            },
+            australia: {
+                australia: "Illegal",
+                newzealand: "Illegal"
+            }
+        },
         info: {
             name: "Methamphetamine",
             introduction: "Methamphetamine, often known simply as 'meth', is a highly potent and addictive psychoactive drug. It typically takes the form of a white, odorless, and bitter-tasting crystalline powder. There are various methods of intake, including swallowing, snorting, smoking, or injecting. Meth stimulates the brain, resulting in a rush of energy and focus, but it can also induce feelings of anxiety, irritability, and paranoia. Despite its potent high, meth is a highly dangerous and illegal substance in many jurisdictions, primarily due to its potential for addiction, health damage, and societal harm.",
@@ -263,6 +318,7 @@ export const drugData = {
             dosage: "When it comes to taking meth, always start with a small dose, especially with a new batch. It’s critical to purchase a milligram scale in order to dose accurately. Be aware that dosing can be inconsistent when using different routes of administration, and transitioning from one method to another might require dosage adjustments. Taking a break between uses can stop you needing more and more each time. And always remember: it's easier to take more later, but you can't take less once it's in your system. So, go slow and be careful.",
             interactions: "Interactions with methamphetamine, a potent stimulant, can lead to severe health risks. Using meth in combination with other substances can amplify these risks, alter drug efficacy, and hasten dependency. Below, you'll find a detailed interactions chart for methamphetamine. Please note that this information should be used for harm reduction purposes, and combining substances should always be approached with extreme caution.",
             testing: "When using substances like methamphetamine, it's crucial to ensure the substance is what it is purported to be. Reagent testing can identify adulterants or substitute substances that may have been added, which can increase the risk of harmful effects or overdose. Particularly, testing for fentanyl, a potent opioid, is important given its increasing prevalence and high risk of overdose. Some of the key reagents for testing methamphetamine include the Marquis, Mecke, and Simon's reagents. Additionally, fentanyl test strips are recommended to identify the presence of this high-risk substance. The following chart contains links to each reagent:",
+            legality: "Methamphetamine, often known as meth, is a highly potent stimulant which is controlled in almost all countries due to its high potential for abuse and serious health risks. Its use is primarily limited to prescription for very specific medical conditions under the brand name Desoxyn, and recreational use is illegal. Despite this, methamphetamine is often available through illicit markets.",
         },
         images: [
             "https://cdn.adf.org.au/media/images/amphetamines-social.width-1524.jpg",
