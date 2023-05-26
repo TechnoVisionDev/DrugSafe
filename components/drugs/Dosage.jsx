@@ -12,7 +12,7 @@ const Dosage = ({routes, info}) => {
                         <h2 className={styles.header}>{routes[key].route}</h2>
                         <p>{routes[key].instructions}</p>
                         <div className={styles.tableContainer}>
-                            <Table striped bordered hover>
+                            <Table striped bordered>
                                 <thead>
                                     <tr>
                                         <th colSpan={2}>Dosage</th>
@@ -45,7 +45,7 @@ const Dosage = ({routes, info}) => {
                                     </tr>
                                 </tbody>
                             </Table>
-                            <Table striped bordered hover>
+                            <Table striped bordered>
                                 <thead>
                                     <tr>
                                         <th colSpan={2}>Duration</th>

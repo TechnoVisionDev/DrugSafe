@@ -1,0 +1,21 @@
+.tableBody {
+    text-align: center;
+}
+
+.header {
+    margin-top: 1.5rem
+}
+
+.parentContainer {
+    display: flex;
+    align-items: center;
+    overflow: hidden; /* This is important to ensure that the image doesn't overflow the container */
+    width: 100%; /* Or any other size */
+    height: 100%; /* Or any other size */
+  }
+
+.image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
