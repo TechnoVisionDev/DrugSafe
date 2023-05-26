@@ -11,6 +11,7 @@ import Dosage from '../../components/drugs/Dosage';
 import Interactions from '../../components/drugs/Interactions';
 import HarmReduction from '../../components/drugs/HarmReduction';
 import Testing from '../../components/drugs/Testing';
+import Risks from '../../components/drugs/Risks';
 
 const Drug = ({ data }) => {
 
@@ -22,7 +23,7 @@ const Drug = ({ data }) => {
         {name: 'Interactions', component: <Interactions interactions={data.interactions} info={data.info}/>, icon: <FaExchangeAlt />}, 
         {name: 'Reagent Testing', component: <Testing testing={data.testing} info={data.info}/>, icon: <FaVial />}, 
         {name: 'Harm Reduction', component: <HarmReduction harmReduction={data.harmReduction}/>, icon: <FaShieldAlt />}, 
-        {name: 'Risks', component: <></>, icon: <FaExclamationTriangle />}, 
+        {name: 'Risks', component: <Risks risks={data.risks}/>, icon: <FaExclamationTriangle />}, 
         {name: 'The Law', component: <></>, icon: <FaGavel />}, 
         {name: 'References', component: <></>, icon: <FaBook />}
     ];
