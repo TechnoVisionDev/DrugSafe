@@ -9,13 +9,13 @@ function TripReports({drugName, reports}) {
 
     const [show, setShow] = useState(false);
     const [tripReports, setTripReports] = useState(reports);
-    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', tags: [] });
+    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tags: [] });
     const [wordCount, setWordCount] = useState(0);
-    const maxWordCount = 2500;
+    const maxWordCount = 5000;
 
     const handleClose = () => setShow(false);
     const handleShow = () => {
-        setNewReport(prev => ({...prev, drug: drugName}));
+        setNewReport(prev => ({...prev, drug: drugName.toLowerCase()}));
         setShow(true);
     }; 
 
@@ -24,10 +24,14 @@ function TripReports({drugName, reports}) {
     
         if (name === "drug" || name === "route") {
             setNewReport({ ...newReport, [name]: value });
-        } else if (["dose", "title", "author"].includes(name)) {
+        } else if (["dose", "title"].includes(name)) {
             const wordCount = value.trim().split(/\s+/).length;
-            if (wordCount <= 50) {
+            if (wordCount <= 10 && value.length <= 50) {
                 setNewReport({ ...newReport, [name]: value });
+            }
+        } else if (name === "author") {
+            if (value.length <= 30) {
+                setNewReport({ ...newReport, [name]: value.replace(/\s/g, '') });
             }
         } else if (name === "story") {
             const wordCount = value.trim().split(/\s+/).length;
@@ -35,7 +39,9 @@ function TripReports({drugName, reports}) {
                 setNewReport({ ...newReport, [name]: value });
                 setWordCount(wordCount);
             }
-        }
+        } else if (["gender", "weight"].includes(name)) {
+            setNewReport({ ...newReport, [name]: value });
+        } 
     };      
 
     // Handles submission of trip reports to database
@@ -101,6 +107,23 @@ function TripReports({drugName, reports}) {
                                     <option key='rectal' value='rectal'>Rectal</option>
                                     <option key='intravenous' value='intravenous'>Intravenous</option>
                                 </Form.Select>
+                            </Form.Group>
+                        </div>
+                        <div className={styles.modalRow}>
+                            <Form.Group controlId="gender" className={styles.flexGroup}>
+                                <Form.Label>Gender</Form.Label>
+                                <Form.Select name="gender" value={newReport.gender} onChange={handleInputChange} required>
+                                    <option hidden>-- Select Gender --</option>
+                                    <option disabled>-- Select Gender --</option>
+                                    <option key='male' value='male'>Male</option>
+                                    <option key='female' value='female'>Female</option>
+                                    <option key='nonbinary' value='nonbinary'>Nonbinary</option>
+                                    <option key='pnta' value='Prefer Not to Answer'>Prefer Not to Answer</option>
+                                </Form.Select>
+                            </Form.Group>
+                            <Form.Group controlId="weight" className={styles.flexGroup}>
+                                <Form.Label>Body Weight (kg)</Form.Label>
+                                <Form.Control type="number" placeholder="Enter weight" name="weight" value={newReport.weight} onChange={handleInputChange} min={0} max={650} step={1} required />
                             </Form.Group>
                         </div>
 

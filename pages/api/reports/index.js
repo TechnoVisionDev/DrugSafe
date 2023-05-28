@@ -1,5 +1,5 @@
 // api/reports
-import {clientPromise, databaseName} from '../../../lib/mongodb'
+import { clientPromise, databaseName } from '../../../lib/mongodb'
 
 export default async function handler(req, res) {
   if (req.method === 'GET') {
