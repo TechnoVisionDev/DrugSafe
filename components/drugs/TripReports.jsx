@@ -3,26 +3,26 @@ import { Modal, Button, Card, Form } from 'react-bootstrap';
 import { drugData } from '../../lib/drugs';
 import styles from './TripReports.module.css';
 
-const TAGS = ['First Experience', 'Bad Trip', 'Good Trip', 'Health Problems', 'Health Benefits', 'Addiction', 'Mystical', 'Medical Use', 'Summary', 'Preparation'];
+const TAGS = ['General', 'First Experience', 'Bad Trip', 'Good Trip', 'Health Problems', 'Health Benefits', 'Addiction', 'Mystical', 'Medical Use', 'Summary', 'Preparation', 'Recipe'];
 
-function TripReports({drugName, reports}) {
+function TripReports({ drugName, reports }) {
 
     const [show, setShow] = useState(false);
     const [tripReports, setTripReports] = useState(reports);
-    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tags: [] });
+    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });
     const [wordCount, setWordCount] = useState(0);
     const maxWordCount = 5000;
 
     const handleClose = () => setShow(false);
     const handleShow = () => {
-        setNewReport(prev => ({...prev, drug: drugName.toLowerCase()}));
+        setNewReport(prev => ({ ...prev, drug: drugName.toLowerCase() }));
         setShow(true);
-    }; 
+    };
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
-    
-        if (name === "drug" || name === "route") {
+
+        if (["drug", "route", "gender", "weight", "tag"].includes(name)) {
             setNewReport({ ...newReport, [name]: value });
         } else if (["dose", "title"].includes(name)) {
             const wordCount = value.trim().split(/\s+/).length;
@@ -39,10 +39,8 @@ function TripReports({drugName, reports}) {
                 setNewReport({ ...newReport, [name]: value });
                 setWordCount(wordCount);
             }
-        } else if (["gender", "weight"].includes(name)) {
-            setNewReport({ ...newReport, [name]: value });
-        } 
-    };      
+        }
+    };
 
     // Handles submission of trip reports to database
     const handleSubmit = async (e) => {
@@ -60,7 +58,7 @@ function TripReports({drugName, reports}) {
                 }
                 const updatedReports = await fetch('/api/reports');
                 setTripReports(await updatedReports.json());
-                setNewReport({ title: '', author: '', story: '', dose: '', tags: [] });
+                setNewReport({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });
                 handleClose();
             } catch (error) {
                 console.error('An error occurred:', error);
@@ -145,39 +143,21 @@ function TripReports({drugName, reports}) {
                             <Form.Label>Trip Report</Form.Label>
                             <Form.Control as="textarea" rows={3} placeholder="Tell us about your experience" name="story" value={newReport.story} onChange={handleInputChange} maxLength={100000} required />
                             <Form.Text className="text-muted">
-                                {wordCount.toLocaleString()} / 2,500 Words
+                                {wordCount.toLocaleString()} / {maxWordCount.toLocaleString()} Words
                             </Form.Text>
                         </Form.Group>
 
-                        <Form.Group controlId="tags">
-                            <Form.Label>Tags (Optional)</Form.Label>
-                            <div>
+                        <Form.Group controlId="tag">
+                            <Form.Label>Tag (Optional)</Form.Label>
+                            <Form.Select name="tag" value={newReport.tag} onChange={handleInputChange}>
+                                <option hidden>-- Select Tag --</option>
+                                <option disabled>-- Select Tag --</option>
                                 {TAGS.map(tag => (
-                                    <Button
-                                        key={tag}
-                                        variant="outline-success"
-                                        active={newReport.tags.includes(tag)}
-                                        onClick={() => {
-                                            const tagIndex = newReport.tags.indexOf(tag);
-                                            let newTags;
-                                            if (tagIndex > -1) {
-                                                // The tag already exists, remove it
-                                                newTags = [...newReport.tags];
-                                                newTags.splice(tagIndex, 1);
-                                            } else {
-                                                // The tag does not exist, add it
-                                                newTags = [...newReport.tags, tag];
-                                            }
-                                            setNewReport({ ...newReport, tags: newTags });
-                                        }}
-                                        className={styles.tagButton}
-                                    >
-                                        {tag}
-                                    </Button>
+                                    <option key={tag} value={tag}>{tag}</option>
                                 ))}
-                            </div>
+                            </Form.Select>
                         </Form.Group>
-                        
+
                         <Button variant="primary" type="submit" disabled={wordCount > maxWordCount}>
                             Submit
                         </Button>
@@ -185,15 +165,17 @@ function TripReports({drugName, reports}) {
                 </Modal.Body>
             </Modal>
 
-            <div className="tripReports">
+            <div>
                 {tripReports.map((report, index) => (
-                    <Card key={index} className="tripReport">
-                        <Card.Body>
-                            <Card.Title>{report.title}</Card.Title>
-                            <Card.Subtitle className="mb-2 text-muted">{report.author}</Card.Subtitle>
-                            <Card.Text>
-                                {report.story.split(" ", 50).join(" ") + '...'}
-                            </Card.Text>
+                    <Card key={index} className={styles.card}>
+                        <Card.Body className={styles.cardBody}>
+                            <div className={styles.flexCol}>
+                                <Card.Title>{report.title}</Card.Title>
+                                <Card.Subtitle className="mb-2 text-muted">By: {report.author}</Card.Subtitle>
+                            </div>
+                            <div className={styles.tagsContainer}>
+                                <span className={styles.tag}>{report.tag}</span>
+                            </div>
                         </Card.Body>
                     </Card>
                 ))}

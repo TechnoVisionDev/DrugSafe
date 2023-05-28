@@ -28,6 +28,36 @@
     flex: 1;
 }
 
+.card {
+    margin-bottom: 1rem;
+}
+
+.cardBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tagsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.tag {
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: #fff;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+}
+
 @media (max-width: 600px) {
     .modalRow {
         flex-direction: column;

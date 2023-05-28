@@ -3,7 +3,7 @@ import {clientPromise, databaseName} from '../../../lib/mongodb'
 
 export default async function handler(req, res) {
     if (req.method === 'POST') {
-        const { title, author, story, drug, route, dose, gender, weight, tags } = req.body;
+        let { title, author, story, drug, route, dose, gender, weight, tag } = req.body;
 
         const words = story.trim().split(/\s+/).length;
         if (words > 2500) {
@@ -24,10 +24,14 @@ export default async function handler(req, res) {
             return;
         }
 
+        if (!tag) {
+            tag = 'General';
+        }
+
         try {
             const client = await clientPromise;
             const db = client.db(databaseName);
-            await db.collection('reports').insertOne({ title, author, story, drug, route, dose, gender, weight: Math.floor(weight), date: new Date(), tags });
+            await db.collection('reports').insertOne({ title, author, story, drug, route, dose, gender, weight: Math.floor(weight), date: new Date(), tag });
             res.status(200).end();
         } catch (error) {
             console.error('An error occurred:', error);
