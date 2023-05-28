@@ -15,13 +15,13 @@ import Law from '../../components/drugs/Law';
 import References from '../../components/drugs/References';
 import TripReports from '../../components/drugs/TripReports';
 
-const Drug = ({ data }) => {
+const Drug = ({ data, reports }) => {
 
     const sections = [
         {name: 'Introduction', component: <Introduction info={data.info} images={data.images}/>, icon: <FaSquare />}, 
         {name: 'Effects', component: <Effects effects={data.effects} info={data.info}/>, icon: <FaPills />}, 
         {name: 'Dosage', component: <Dosage routes={data.routes} info={data.info}/>, icon: <FaChartLine />}, 
-        {name: 'Trip Reports', shortName: 'Reports', component: <TripReports drugName={data.name}/>, icon: <FaComments />}, 
+        {name: 'Trip Reports', shortName: 'Reports', component: <TripReports drugName={data.name} reports={reports}/>, icon: <FaComments />}, 
         {name: 'Interactions', component: <Interactions interactions={data.interactions} info={data.info}/>, icon: <FaExchangeAlt />}, 
         {name: 'Reagent Testing', shortName: 'Testing', component: <Testing testing={data.testing} info={data.info}/>, icon: <FaVial />}, 
         {name: 'Harm Reduction', shortName: 'Safety', component: <HarmReduction harmReduction={data.harmReduction}/>, icon: <FaShieldAlt />}, 
@@ -80,12 +80,21 @@ const Drug = ({ data }) => {
 };
 
 export async function getStaticProps({ params }) {
-    const res = await fetch(`${process.env.URL}/api/drugs/${params.drug}`);
+    // Retrieve drug data
+    let res = await fetch(`${process.env.URL}/api/drugs/${params.drug}`);
     const data = await res.json();
     if (!res.ok) {
         throw new Error(data.message);
     }
-    return { props: { data } };
+
+    // Retrieve trip reports
+    res = await fetch(`${process.env.URL}/api/reports/${params.drug}`);
+    const reports = await res.json();
+    if (!res.ok) {
+        throw new Error(reports.message);
+    }
+
+    return { props: { data, reports } };
 }
 
 export async function getStaticPaths() {

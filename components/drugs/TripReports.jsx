@@ -1,14 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Modal, Button, Card, Form } from 'react-bootstrap';
 import { drugData } from '../../lib/drugs';
 import styles from './TripReports.module.css';
 
 const TAGS = ['First Experience', 'Bad Trip', 'Good Trip', 'Health Problems', 'Health Benefits', 'Addiction', 'Mystical', 'Medical Use', 'Summary', 'Preparation'];
 
-function TripReports({drugName}) {
+function TripReports({drugName, reports}) {
 
     const [show, setShow] = useState(false);
-    const [tripReports, setTripReports] = useState([]);
+    const [tripReports, setTripReports] = useState(reports);
     const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', tags: [] });
     const [wordCount, setWordCount] = useState(0);
     const maxWordCount = 2500;
@@ -17,14 +17,7 @@ function TripReports({drugName}) {
     const handleShow = () => {
         setNewReport(prev => ({...prev, drug: drugName}));
         setShow(true);
-    };
-
-    useEffect(() => {
-        fetch('/api/reports')
-            .then(response => response.json())
-            .then(data => setTripReports(data))
-            .catch(error => console.log(error));
-    }, []);   
+    }; 
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -92,7 +85,7 @@ function TripReports({drugName}) {
                                 <Form.Select name="drug" value={newReport.drug} onChange={handleInputChange} required>
                                     <option disabled>-- Select Drug --</option>
                                     {Object.values(drugData).map(drug => (
-                                        <option key={drug.name.toLowerCase()} value={drug.name}>{drug.name}</option>
+                                        <option key={drug.name.toLowerCase()} value={drug.name.toLowerCase()}>{drug.name}</option>
                                     ))}
                                 </Form.Select>
                             </Form.Group>
@@ -102,11 +95,11 @@ function TripReports({drugName}) {
                                 <Form.Select name="route" value={newReport.route || ''} onChange={handleInputChange} required>
                                     <option hidden>-- Select ROA --</option>
                                     <option disabled>-- Select ROA --</option>
-                                    <option key='oral' value='Oral'>Oral</option>
-                                    <option key='smoked' value='Smoked'>Smoked</option>
-                                    <option key='insufflated' value='Insufflated'>Insufflated</option>
-                                    <option key='rectal' value='Rectal'>Rectal</option>
-                                    <option key='intravenous' value='Intravenous'>Intravenous</option>
+                                    <option key='oral' value='oral'>Oral</option>
+                                    <option key='smoked' value='smoked'>Smoked</option>
+                                    <option key='insufflated' value='insufflated'>Insufflated</option>
+                                    <option key='rectal' value='rectal'>Rectal</option>
+                                    <option key='intravenous' value='intravenous'>Intravenous</option>
                                 </Form.Select>
                             </Form.Group>
                         </div>
@@ -161,8 +154,7 @@ function TripReports({drugName}) {
                                 ))}
                             </div>
                         </Form.Group>
-
-
+                        
                         <Button variant="primary" type="submit" disabled={wordCount > maxWordCount}>
                             Submit
                         </Button>

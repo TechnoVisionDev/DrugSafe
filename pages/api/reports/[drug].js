@@ -4,7 +4,6 @@ import {clientPromise, databaseName} from '../../../lib/mongodb'
 export default async function handler(req, res) {
     if (req.method === 'GET') {
         const { drug } = req.query;
-
         try {
             const client = await clientPromise;
             const db = client.db(databaseName);
