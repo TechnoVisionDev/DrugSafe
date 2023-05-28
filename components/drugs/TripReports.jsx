@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Modal, Button, Card, Form } from 'react-bootstrap';
+import { Modal, Button, Card, Form, Alert } from 'react-bootstrap';
 import { drugData } from '../../lib/drugs';
 import styles from './TripReports.module.css';
 
@@ -11,6 +11,7 @@ function TripReports({ drugName, reports }) {
     const [tripReports, setTripReports] = useState(reports);
     const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });
     const [wordCount, setWordCount] = useState(0);
+    const [showAlert, setShowAlert] = useState(false);
     const maxWordCount = 5000;
 
     const handleClose = () => setShow(false);
@@ -60,6 +61,7 @@ function TripReports({ drugName, reports }) {
                 setTripReports(await updatedReports.json());
                 setNewReport({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });
                 handleClose();
+                setShowAlert(true);
             } catch (error) {
                 console.error('An error occurred:', error);
             }
@@ -71,6 +73,11 @@ function TripReports({ drugName, reports }) {
     return (
         <section className={styles.container}>
             <h2>Trip Reports</h2>
+            <div className={styles.alert}>
+                <Alert show={showAlert} variant="success" onClose={() => setShowAlert(false)} dismissible>
+                    <strong>Success!</strong> Your trip report has been submitted.
+                </Alert>
+            </div>
             <div className={styles.btnContainer}>
                 <Button variant="secondary" onClick={handleShow}>
                     Write a Trip Report
