@@ -165,7 +165,7 @@ function TripReports({ drugName, reports }) {
                 </Modal.Body>
             </Modal>
 
-            <div>
+            <div className={styles.reportsContainer}>
                 {tripReports.map((report, index) => (
                     <Card key={index} className={styles.card}>
                         <Card.Body className={styles.cardBody}>

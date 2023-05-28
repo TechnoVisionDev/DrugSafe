@@ -58,6 +58,13 @@
     flex-direction: column;
 }
 
+.reportsContainer {
+    max-height: 700px;
+    overflow-y: auto;
+    margin: auto;
+    max-width: 30rem;
+}
+
 @media (max-width: 600px) {
     .modalRow {
         flex-direction: column;
