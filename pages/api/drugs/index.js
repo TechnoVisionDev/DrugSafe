@@ -1,3 +1,4 @@
+// api/drugs
 import { drugData } from "../../../data/drugs";
 
 export default function handler(req, res) {

@@ -1,4 +1,4 @@
-// pages/drugs/[id].jsx
+// pages/drugs/[drug].jsx
 import styles from './drug.module.css';
 import { useState, useEffect } from 'react';
 import { FaSquare, FaPills, FaChartLine, FaComments, FaExchangeAlt, FaVial, FaShieldAlt, FaExclamationTriangle, FaGavel, FaBook } from 'react-icons/fa';
@@ -31,7 +31,6 @@ const Drug = ({ data }) => {
     ];
     const [selectedSection, setSelectedSection] = useState(sections[0]);
 
-    // Updates button text for mobile screens
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         function handleResize() {
@@ -81,8 +80,7 @@ const Drug = ({ data }) => {
 };
 
 export async function getStaticProps({ params }) {
-    // Fetch drug data from API
-    const res = await fetch(`${process.env.URL}/api/drugs/${params.id}`);
+    const res = await fetch(`${process.env.URL}/api/drugs/${params.drug}`);
     const data = await res.json();
     if (!res.ok) {
         throw new Error(data.message);
@@ -91,9 +89,8 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-    // Fetch all drug IDs for static generation
-    const drugIds = Object.keys(drugData);
-    const paths = drugIds.map(id => ({ params: { id } }));
+    const drugNames = Object.keys(drugData);
+    const paths = drugNames.map(drug => ({ params: { drug } }));
     return {
         paths,
         fallback: false

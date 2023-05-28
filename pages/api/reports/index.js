@@ -1,4 +1,4 @@
-// api/reports/index.js
+// api/reports
 import {clientPromise, databaseName} from '../../../lib/mongodb'
 
 export default async function handler(req, res) {

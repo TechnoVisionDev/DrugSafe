@@ -1,17 +1,20 @@
+// api/drugs/[drug].js
 import { drugData } from "../../../data/drugs";
 
 export default function handler(req, res) {
     const {
-        query: { id },
+        query: { drug },
         method,
     } = req;
 
     switch (method) {
         case 'GET':
-            if (!drugData[id]) {
+            // Find the drug by name
+            const drugInfo = Object.values(drugData).find(d => d.name.toLowerCase() === drug.toLowerCase());
+            if (!drugInfo) {
                 res.status(404).json({ message: 'That drug does not exist.' });
             } else {
-                res.status(200).json(drugData[id]);
+                res.status(200).json(drugInfo);
             }
             break;
         default:
