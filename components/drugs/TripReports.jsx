@@ -1,25 +1,47 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Modal, Button, Card, Form } from 'react-bootstrap';
 import styles from './TripReports.module.css';
 
 function TripReports() {
     const [show, setShow] = useState(false);
     const [tripReports, setTripReports] = useState([]);
-    const [newReport, setNewReport] = useState({ title: '', author: '', story: '' });
+    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '' });
 
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+    useEffect(() => {
+        fetch('/api/reports')
+        .then(response => response.json())
+        .then(data => setTripReports(data))
+        .catch(error => console.log(error));
+    }, []);
 
     const handleInputChange = (e) => {
         setNewReport({ ...newReport, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
+    // Handles submission of trip reports to database
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        if (newReport.title.trim() && newReport.author.trim() && newReport.story.trim()) {
-            setTripReports([...tripReports, newReport]);
-            setNewReport({ title: '', author: '', story: '' });
-            handleClose();
+        if (newReport.title.trim() && newReport.author.trim() && newReport.story.trim() && newReport.drug.trim()) {
+            try {
+                const response = await fetch('/api/add-report', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(newReport),
+                });
+
+                if (!response.ok) {
+                    throw new Error(response.statusText);
+                }
+                const updatedReports = await fetch('/api/reports');
+                setTripReports(await updatedReports.json());
+                setNewReport({ title: '', author: '', story: '', drug: '' });
+                handleClose();
+            } catch (error) {
+                console.error('An error occurred:', error);
+            }
         } else {
             alert('All fields are required.');
         }
