@@ -17,19 +17,19 @@ const Interactions = ({ interactions, info }) => {
                 </thead>
                 <tbody className={styles.tableBody}>
                     {interactions.caution.map(interaction => 
-                        <tr className={styles.caution}>
+                        <tr className={styles.caution} key={interaction}>
                             <td><FaExclamationTriangle/></td>
                             <td>{interaction}</td>
                         </tr>
                     )}
                     {interactions.unsafe.map(interaction => 
-                        <tr className={styles.unsafe}>
+                        <tr className={styles.unsafe} key={interaction}>
                             <td><FaHeartbeat/></td>
                             <td>{interaction}</td>
                         </tr>
                     )}
                     {interactions.dangerous.map(interaction => 
-                        <tr className={styles.dangerous}>
+                        <tr className={styles.dangerous} key={interaction}>
                             <td><FaTimes/></td>
                             <td>{interaction}</td>
                         </tr>

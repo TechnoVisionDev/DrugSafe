@@ -5,7 +5,7 @@ const HarmReduction = ({harmReduction}) => {
         <section>
             <h2>Harm Reduction</h2>
             {harmReduction.map((element, index) => 
-                <div>
+                <div key={index+1}>
                     <p><b>{index+1}.) {element.header}</b></p>
                     <p>{element.body}</p>
                 </div>

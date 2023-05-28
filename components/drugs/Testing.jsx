@@ -16,7 +16,7 @@ const Testing = ({testing, info}) => {
                     </thead>
                     <tbody className={styles.tableBody}>
                         {testing.map(reagent => 
-                            <tr>
+                            <tr key={reagent.name}>
                                 <td><a href={reagent.link} target="_blank" rel="noopener">{reagent.name}</a></td>
                                 <td>{reagent.expected}</td>
                             </tr>
