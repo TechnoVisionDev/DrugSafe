@@ -7,11 +7,15 @@ const TAGS = ['General', 'First Experience', 'Bad Trip', 'Good Trip', 'Health Pr
 
 function TripReports({ drugName, reports }) {
 
+    console.log(reports);
+
     const [show, setShow] = useState(false);
     const [tripReports, setTripReports] = useState(reports);
     const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });
     const [wordCount, setWordCount] = useState(0);
     const [showAlert, setShowAlert] = useState(false);
+    const [filter, setFilter] = useState("");
+    const [sortOrder, setSortOrder] = useState("newest");
     const maxWordCount = 5000;
 
     const handleClose = () => setShow(false);
@@ -57,7 +61,7 @@ function TripReports({ drugName, reports }) {
                 if (!response.ok) {
                     throw new Error(response.statusText);
                 }
-                const updatedReports = await fetch('/api/reports');
+                const updatedReports = await fetch(`/api/reports/${drugName.toLowerCase()}`);
                 setTripReports(await updatedReports.json());
                 setNewReport({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });
                 handleClose();
@@ -82,6 +86,20 @@ function TripReports({ drugName, reports }) {
                 <Button variant="secondary" onClick={handleShow}>
                     Write a Trip Report
                 </Button>
+                <div className={styles.filters}>
+                    <select defaultValue="" className="form-select" style={{ width: '180px' }} onChange={(e) => setFilter(e.target.value)}>
+                        <option disabled>-- Filter by Tag --</option>
+                        <option key="default" value="">All Tags</option>
+                        {TAGS.map((tag, i) =>
+                            <option key={i} value={tag}>{tag}</option>
+                        )}
+                    </select>
+                    <select defaultValue="newest" className="form-select" style={{width: '150px'}} onChange={(e) => setSortOrder(e.target.value)}>
+                        <option disabled>-- Sort Options --</option>
+                        <option value="newest">Sort Newest</option>
+                        <option value="oldest">Sort Oldest</option>
+                    </select>
+                </div>
             </div>
 
             <Modal show={show} onHide={handleClose} className='reportModal'>
@@ -173,7 +191,14 @@ function TripReports({ drugName, reports }) {
             </Modal>
 
             <div className={styles.reportsContainer}>
-                {tripReports.map((report, index) => (
+                {tripReports
+                .filter(report => filter === "" || report.tag === filter)
+                .sort((a, b) => {
+                    const dateA = new Date(a.date);
+                    const dateB = new Date(b.date);
+                    return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
+                })
+                .map((report, index) => (
                     <Card key={index} className={styles.card}>
                         <Card.Body className={styles.cardBody}>
                             <div className={styles.flexCol}>

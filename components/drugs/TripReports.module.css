@@ -1,7 +1,8 @@
 .btnContainer {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
+    gap: 2rem;
     align-items: center;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -61,8 +62,6 @@
 .reportsContainer {
     max-height: 700px;
     overflow-y: auto;
-    margin: auto;
-    max-width: 30rem;
 }
 
 .alert {
@@ -72,9 +71,23 @@
     z-index: 9999;
 }
 
+.filters {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
 @media (max-width: 600px) {
     .modalRow {
         flex-direction: column;
     }
 }
+
+@media (max-width: 1000px) {
+    .btnContainer {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 
