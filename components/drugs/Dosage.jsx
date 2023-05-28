@@ -7,8 +7,8 @@ const Dosage = ({routes, info}) => {
             <h2>Dosing {info.name}</h2>
             <p>{info.dosage}</p>
             <div className={styles.tables}>
-                {Object.keys(routes).map((key) =>
-                    <div key={key}>
+                {Object.keys(routes).map((key, index) =>
+                    <div key={index}>
                         <h2 className={styles.header}>{routes[key].route}</h2>
                         <p>{routes[key].instructions}</p>
                         <div className={styles.tableContainer}>

@@ -125,7 +125,7 @@
     }
 
     .sectionButton {
-        width: calc(50% - 2rem);
+        width: calc(50% - 0.8rem);
     }
 
     .sectionContent {
