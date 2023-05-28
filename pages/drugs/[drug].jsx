@@ -2,7 +2,7 @@
 import styles from './drug.module.css';
 import { useState, useEffect } from 'react';
 import { FaSquare, FaPills, FaChartLine, FaComments, FaExchangeAlt, FaVial, FaShieldAlt, FaExclamationTriangle, FaGavel, FaBook } from 'react-icons/fa';
-import { drugData } from '../../data/drugs'; 
+import { drugData } from '../../lib/drugs'; 
 import Navbar from '../../components/Navbar';
 import Introduction from '../../components/drugs/Introduction';
 import Effects from '../../components/drugs/Effects';

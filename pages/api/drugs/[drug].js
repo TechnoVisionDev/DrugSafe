@@ -1,5 +1,5 @@
 // api/drugs/[drug].js
-import { drugData } from "../../../data/drugs";
+import { drugData } from "../../../lib/drugs";
 
 export default function handler(req, res) {
     const {
