@@ -25,14 +25,17 @@ function NavScrollExample() {
               <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Drugs" id="navbarScrollingDropdown">
+              <NavDropdown.Item href="/drugs">Search Drugs</NavDropdown.Item>
+              <NavDropdown.Divider />
               <NavDropdown.Item href="/drugs/cannabis">Cannabis</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/methamphetamine">Methamphetamine</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Guides" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/guides/testing">Reagent Testing</NavDropdown.Item>
               <NavDropdown.Item href="/guides/boofing">Boofing</NavDropdown.Item>
+              <NavDropdown.Item href="/guides/intravenous">Intravenous</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="https://discord.gg/s8CFunneAg">Discord</Nav.Link>
+            <Nav.Link href="https://discord.gg/s8CFunneAg" target="_blank" rel="noopener noreferrer">Discord</Nav.Link>
           </Nav>
           <Form className="d-flex">
             <Form.Control

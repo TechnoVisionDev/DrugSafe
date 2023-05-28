@@ -59,3 +59,45 @@ th {
     max-width: 40rem !important;
     width: 96% !important;
 }
+
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.header {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.image {
+    max-width: 200px;
+    height: auto;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 1.2rem;
+}
+
+.description {
+    margin: 2rem auto;
+    color: #555;
+    max-width: 44rem;
+    text-align: center;
+}
