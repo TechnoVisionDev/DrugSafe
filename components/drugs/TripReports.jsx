@@ -1,32 +1,56 @@
 import { useState, useEffect } from 'react';
 import { Modal, Button, Card, Form } from 'react-bootstrap';
+import { drugData } from '../../lib/drugs';
 import styles from './TripReports.module.css';
 
-function TripReports() {
+const TAGS = ['First Experience', 'Bad Trip', 'Good Trip', 'Health Problems', 'Health Benefits', 'Addiction', 'Mystical', 'Medical Use', 'Summary', 'Preparation'];
+
+function TripReports({drugName}) {
+
     const [show, setShow] = useState(false);
     const [tripReports, setTripReports] = useState([]);
-    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '' });
+    const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', tags: [] });
+    const [wordCount, setWordCount] = useState(0);
+    const maxWordCount = 2500;
 
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        setNewReport(prev => ({...prev, drug: drugName}));
+        setShow(true);
+    };
 
     useEffect(() => {
         fetch('/api/reports')
-        .then(response => response.json())
-        .then(data => setTripReports(data))
-        .catch(error => console.log(error));
-    }, []);
+            .then(response => response.json())
+            .then(data => setTripReports(data))
+            .catch(error => console.log(error));
+    }, []);   
 
     const handleInputChange = (e) => {
-        setNewReport({ ...newReport, [e.target.name]: e.target.value });
-    };
+        const { name, value } = e.target;
+    
+        if (name === "drug" || name === "route") {
+            setNewReport({ ...newReport, [name]: value });
+        } else if (["dose", "title", "author"].includes(name)) {
+            const wordCount = value.trim().split(/\s+/).length;
+            if (wordCount <= 50) {
+                setNewReport({ ...newReport, [name]: value });
+            }
+        } else if (name === "story") {
+            const wordCount = value.trim().split(/\s+/).length;
+            if (wordCount <= maxWordCount) {
+                setNewReport({ ...newReport, [name]: value });
+                setWordCount(wordCount);
+            }
+        }
+    };      
 
     // Handles submission of trip reports to database
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (newReport.title.trim() && newReport.author.trim() && newReport.story.trim() && newReport.drug.trim()) {
+        if (newReport.title.trim() && newReport.author.trim() && newReport.story.trim() && newReport.dose.trim() && newReport.drug && newReport.route) {
             try {
-                const response = await fetch('/api/add-report', {
+                const response = await fetch('/api/reports/add', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(newReport),
@@ -37,7 +61,7 @@ function TripReports() {
                 }
                 const updatedReports = await fetch('/api/reports');
                 setTripReports(await updatedReports.json());
-                setNewReport({ title: '', author: '', story: '', drug: '' });
+                setNewReport({ title: '', author: '', story: '', dose: '', tags: [] });
                 handleClose();
             } catch (error) {
                 console.error('An error occurred:', error);
@@ -61,7 +85,36 @@ function TripReports() {
                     <Modal.Title>Write a Trip Report</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <Form onSubmit={handleSubmit}>
+                    <Form onSubmit={handleSubmit} className={styles.form}>
+                        <div className={styles.modalRow}>
+                            <Form.Group controlId="drug" className={styles.flexGroup}>
+                                <Form.Label>Drug</Form.Label>
+                                <Form.Select name="drug" value={newReport.drug} onChange={handleInputChange} required>
+                                    <option disabled>-- Select Drug --</option>
+                                    {Object.values(drugData).map(drug => (
+                                        <option key={drug.name.toLowerCase()} value={drug.name}>{drug.name}</option>
+                                    ))}
+                                </Form.Select>
+                            </Form.Group>
+
+                            <Form.Group controlId="route" className={styles.flexGroup}>
+                                <Form.Label>Route of Administration</Form.Label>
+                                <Form.Select name="route" value={newReport.route || ''} onChange={handleInputChange} required>
+                                    <option hidden>-- Select ROA --</option>
+                                    <option disabled>-- Select ROA --</option>
+                                    <option key='oral' value='Oral'>Oral</option>
+                                    <option key='smoked' value='Smoked'>Smoked</option>
+                                    <option key='insufflated' value='Insufflated'>Insufflated</option>
+                                    <option key='rectal' value='Rectal'>Rectal</option>
+                                    <option key='intravenous' value='Intravenous'>Intravenous</option>
+                                </Form.Select>
+                            </Form.Group>
+                        </div>
+
+                        <Form.Group controlId="dose">
+                            <Form.Label>Dose</Form.Label>
+                            <Form.Control type="text" placeholder="Enter dose taken" name="dose" value={newReport.dose} onChange={handleInputChange} required />
+                        </Form.Group>
                         <Form.Group controlId="title">
                             <Form.Label>Title</Form.Label>
                             <Form.Control type="text" placeholder="Enter title" name="title" value={newReport.title} onChange={handleInputChange} required />
@@ -69,18 +122,48 @@ function TripReports() {
 
                         <Form.Group controlId="author">
                             <Form.Label>Author</Form.Label>
-                            <Form.Control type="text" placeholder="Enter author name" name="author" value={newReport.author} onChange={handleInputChange} required />
+                            <Form.Control type="text" placeholder="Enter a username" name="author" value={newReport.author} onChange={handleInputChange} required />
                         </Form.Group>
 
                         <Form.Group controlId="story">
-                            <Form.Label>Story</Form.Label>
-                            <Form.Control as="textarea" rows={3} placeholder="Write your story" name="story" value={newReport.story} onChange={handleInputChange} maxLength={50000} required />
+                            <Form.Label>Trip Report</Form.Label>
+                            <Form.Control as="textarea" rows={3} placeholder="Tell us about your experience" name="story" value={newReport.story} onChange={handleInputChange} maxLength={100000} required />
                             <Form.Text className="text-muted">
-                                {newReport.story.length}/50,000
+                                {wordCount.toLocaleString()} / 2,500 Words
                             </Form.Text>
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
+                        <Form.Group controlId="tags">
+                            <Form.Label>Tags (Optional)</Form.Label>
+                            <div>
+                                {TAGS.map(tag => (
+                                    <Button
+                                        key={tag}
+                                        variant="outline-success"
+                                        active={newReport.tags.includes(tag)}
+                                        onClick={() => {
+                                            const tagIndex = newReport.tags.indexOf(tag);
+                                            let newTags;
+                                            if (tagIndex > -1) {
+                                                // The tag already exists, remove it
+                                                newTags = [...newReport.tags];
+                                                newTags.splice(tagIndex, 1);
+                                            } else {
+                                                // The tag does not exist, add it
+                                                newTags = [...newReport.tags, tag];
+                                            }
+                                            setNewReport({ ...newReport, tags: newTags });
+                                        }}
+                                        className={styles.tagButton}
+                                    >
+                                        {tag}
+                                    </Button>
+                                ))}
+                            </div>
+                        </Form.Group>
+
+
+                        <Button variant="primary" type="submit" disabled={wordCount > maxWordCount}>
                             Submit
                         </Button>
                     </Form>

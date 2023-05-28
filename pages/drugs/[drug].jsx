@@ -21,7 +21,7 @@ const Drug = ({ data }) => {
         {name: 'Introduction', component: <Introduction info={data.info} images={data.images}/>, icon: <FaSquare />}, 
         {name: 'Effects', component: <Effects effects={data.effects} info={data.info}/>, icon: <FaPills />}, 
         {name: 'Dosage', component: <Dosage routes={data.routes} info={data.info}/>, icon: <FaChartLine />}, 
-        {name: 'Trip Reports', shortName: 'Reports', component: <TripReports/>, icon: <FaComments />}, 
+        {name: 'Trip Reports', shortName: 'Reports', component: <TripReports drugName={data.name}/>, icon: <FaComments />}, 
         {name: 'Interactions', component: <Interactions interactions={data.interactions} info={data.info}/>, icon: <FaExchangeAlt />}, 
         {name: 'Reagent Testing', shortName: 'Testing', component: <Testing testing={data.testing} info={data.info}/>, icon: <FaVial />}, 
         {name: 'Harm Reduction', shortName: 'Safety', component: <HarmReduction harmReduction={data.harmReduction}/>, icon: <FaShieldAlt />}, 
