@@ -79,7 +79,7 @@ function TripReports({drugName, reports}) {
                 </Button>
             </div>
 
-            <Modal show={show} onHide={handleClose}>
+            <Modal show={show} onHide={handleClose} className='reportModal'>
                 <Modal.Header closeButton>
                     <Modal.Title>Write a Trip Report</Modal.Title>
                 </Modal.Header>
@@ -123,7 +123,7 @@ function TripReports({drugName, reports}) {
                             </Form.Group>
                             <Form.Group controlId="weight" className={styles.flexGroup}>
                                 <Form.Label>Body Weight (kg)</Form.Label>
-                                <Form.Control type="number" placeholder="Enter weight" name="weight" value={newReport.weight} onChange={handleInputChange} min={0} max={650} step={1} required />
+                                <Form.Control type="number" placeholder="Enter weight in kilograms" name="weight" value={newReport.weight} onChange={handleInputChange} min={0} max={650} step={1} required />
                             </Form.Group>
                         </div>
 
@@ -138,7 +138,7 @@ function TripReports({drugName, reports}) {
 
                         <Form.Group controlId="author">
                             <Form.Label>Author</Form.Label>
-                            <Form.Control type="text" placeholder="Enter a username" name="author" value={newReport.author} onChange={handleInputChange} required />
+                            <Form.Control type="text" placeholder="Enter username" name="author" value={newReport.author} onChange={handleInputChange} required />
                         </Form.Group>
 
                         <Form.Group controlId="story">

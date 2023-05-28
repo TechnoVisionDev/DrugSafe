@@ -54,3 +54,8 @@ th {
     flex: 1;
     margin-right: 10px;
 }
+
+.reportModal .modal-dialog {
+    max-width: 40rem !important;
+    width: 96% !important;
+}
