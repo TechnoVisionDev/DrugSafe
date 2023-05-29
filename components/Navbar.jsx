@@ -1,5 +1,6 @@
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 import styles from './Navbar.module.css';
-
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
@@ -9,6 +10,18 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Image from 'next/image';
 
 function NavScrollExample() {
+  
+  const router = useRouter();
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push({
+      pathname: '/drugs',
+      query: { search: searchTerm },
+    });
+  };
+
   return (
     <Navbar bg="dark" expand="lg" className={styles.navbarColor}>
       <Container fluid>
@@ -37,14 +50,16 @@ function NavScrollExample() {
             </NavDropdown>
             <Nav.Link href="https://discord.gg/s8CFunneAg" target="_blank" rel="noopener noreferrer">Discord</Nav.Link>
           </Nav>
-          <Form className="d-flex">
+          <Form className="d-flex" onSubmit={handleSubmit}>
             <Form.Control
               type="search"
               placeholder="Search"
               className="me-2"
               aria-label="Search"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
             />
-            <Button variant="outline-secondary">Search</Button>
+            <Button variant="outline-secondary" type="submit">Search</Button>
           </Form>
         </Navbar.Collapse>
       </Container>

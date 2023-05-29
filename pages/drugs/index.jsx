@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 import Form from 'react-bootstrap/Form';
 import Navbar from "../../components/Navbar";
 import styles from './index.module.css';
 
-const Drugs = ({ drugs }) => {
+const Drugs = ({ drugs, initialSearchTerm }) => {
 
-    const [searchTerm, setSearchTerm] = useState('');
+    const router = useRouter();
+    const [searchTerm, setSearchTerm] = useState(initialSearchTerm || '');
 
     const filteredDrugs = drugs.filter((drug) => {
         return drug.name.toLowerCase().startsWith(searchTerm.toLowerCase()) ||
@@ -14,6 +16,12 @@ const Drugs = ({ drugs }) => {
                 alias.toLowerCase().startsWith(searchTerm.toLowerCase())
             )
     });
+
+    useEffect(() => {
+        if (router.query.search) {
+            setSearchTerm(router.query.search);
+        }
+    }, [router.query]);
 
     return (
         <>
@@ -28,7 +36,7 @@ const Drugs = ({ drugs }) => {
                         <b>{" } --"}</b>
                     </p>
                 </section>
-                <Form.Control className={styles.search} onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search"  aria-label="Search" />
+                <Form.Control className={styles.search} value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search"  aria-label="Search" />
                 <div className={styles.gridContainer}>
                     {filteredDrugs.map((drug) => (
                         <Link href={`/drugs/${drug.name.toLowerCase()}`} className={styles.drugBox} key={drug.name}>
@@ -42,7 +50,7 @@ const Drugs = ({ drugs }) => {
     );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query }) {
     // Retrieve drug data
     const res = await fetch(`${process.env.URL}/api/drugs`)
     const drugs = await res.json()
@@ -50,11 +58,15 @@ export async function getServerSideProps() {
         throw new Error(data.message);
     }
 
+    // Retrieve initial search from navbar
+    const initialSearchTerm = query.search || '';
+
     return {
         props: {
             drugs,
+            initialSearchTerm,
         },
-    }
+    };
 }
 
 export default Drugs;
