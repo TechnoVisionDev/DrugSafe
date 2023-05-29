@@ -80,21 +80,40 @@ const Drug = ({ data, reports }) => {
 };
 
 export async function getStaticProps({ params }) {
-    // Retrieve drug data
-    let res = await fetch(`${process.env.URL}/api/drugs/${params.drug}`);
-    const data = await res.json();
-    if (!res.ok) {
-        throw new Error(data.message);
-    }
+    try {
+        // Retrieve drug data
+        let res = await fetch(`${process.env.URL}/api/drugs/${params.drug}`);
+        if (!res.ok) {
+            throw new Error(`API request failed with status ${res.status} ${res.statusText}`);
+        }
+        let text = await res.text();
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (err) {
+            console.error('Failed to parse drug data JSON:', text);
+            throw err;
+        }
 
-    // Retrieve trip reports
-    res = await fetch(`${process.env.URL}/api/reports/${params.drug}`);
-    const reports = await res.json();
-    if (!res.ok) {
-        throw new Error(reports.message);
-    }
+        // Retrieve trip reports
+        res = await fetch(`${process.env.URL}/api/reports/${params.drug}`);
+        if (!res.ok) {
+            throw new Error(`API request failed with status ${res.status} ${res.statusText}`);
+        }
+        text = await res.text();
+        let reports;
+        try {
+            reports = JSON.parse(text);
+        } catch (err) {
+            console.error('Failed to parse trip reports JSON:', text);
+            throw err;
+        }
 
-    return { props: { data, reports } };
+        return { props: { data, reports } };
+    } catch (err) {
+        console.error('Error in getStaticProps:', err);
+        throw err;
+    }
 }
 
 export async function getStaticPaths() {
