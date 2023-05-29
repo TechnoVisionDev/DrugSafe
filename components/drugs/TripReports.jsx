@@ -7,8 +7,6 @@ const TAGS = ['General', 'First Experience', 'Bad Trip', 'Good Trip', 'Health Pr
 
 function TripReports({ drugName, reports }) {
 
-    console.log(reports);
-
     const [show, setShow] = useState(false);
     const [tripReports, setTripReports] = useState(reports);
     const [newReport, setNewReport] = useState({ title: '', author: '', story: '', drug: '', route: '', dose: '', gender: '', weight: 0, tag: '' });

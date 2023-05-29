@@ -14,6 +14,7 @@ import Risks from '../../components/drugs/Risks';
 import Law from '../../components/drugs/Law';
 import References from '../../components/drugs/References';
 import TripReports from '../../components/drugs/TripReports';
+import {clientPromise, databaseName} from '../../lib/mongodb';
 
 const Drug = ({ data, reports }) => {
 
@@ -80,40 +81,22 @@ const Drug = ({ data, reports }) => {
 };
 
 export async function getStaticProps({ params }) {
-    try {
-        // Retrieve drug data
-        let res = await fetch(`${process.env.URL}/api/drugs/${params.drug}`);
-        if (!res.ok) {
-            throw new Error(`API request failed with status ${res.status} ${res.statusText}`);
-        }
-        let text = await res.text();
-        let data;
-        try {
-            data = JSON.parse(text);
-        } catch (err) {
-            console.error('Failed to parse drug data JSON:', text);
-            throw err;
-        }
+    // Retrieve drug data
+    const data = drugData[params.drug];
 
-        // Retrieve trip reports
-        res = await fetch(`${process.env.URL}/api/reports/${params.drug}`);
-        if (!res.ok) {
-            throw new Error(`API request failed with status ${res.status} ${res.statusText}`);
-        }
-        text = await res.text();
-        let reports;
-        try {
-            reports = JSON.parse(text);
-        } catch (err) {
-            console.error('Failed to parse trip reports JSON:', text);
-            throw err;
-        }
+    // Retrieve trip reports
+    const client = await clientPromise;
+    const db = client.db(databaseName);
+    let reports = await db.collection('reports').find({ drug: params.drug }).toArray();
 
-        return { props: { data, reports } };
-    } catch (err) {
-        console.error('Error in getStaticProps:', err);
-        throw err;
-    }
+    // Convert _id and date to a string
+    reports = reports.map((report) => ({
+      ...report,
+      _id: report._id.toString(),
+      date: report.date.toString(),
+    }));
+
+    return { props: { data, reports } };
 }
 
 export async function getStaticPaths() {
