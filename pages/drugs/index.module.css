@@ -1,0 +1,79 @@
+.gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.search {
+    max-width: 25rem;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 1.2rem;
+}
+
+.drugBox {
+    flex: 1 0 20%;
+    width: 25rem;
+    height: 15rem;
+    margin: 1rem;
+    box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.1);
+    padding: 10px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+    border: 1px solid transparent;
+    background-color: #e6e6e6;
+}
+
+.drugBox h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.drugBox:hover {
+    transform: translateY(-5px); /* Move the box up slightly */
+    border: 1px solid rgba(0,0,0,0.2); /* Apply a slight border */
+    color: black;
+}
+
+.drugIcon {
+    margin-top: 1rem;
+    width: 8rem;
+}
+
+.drugName {
+    margin-top: 1.5rem;
+    border: none;
+    font-size: 1.8rem;
+}
+
+/* Media Query for Tablet Devices */
+@media screen and (max-width: 1250px) {
+    .drugBox {
+        flex: 1 0 25%;
+    }
+}
+@media screen and (max-width: 1000px) {
+    .drugBox {
+        flex: 1 0 30%;
+    }
+}
+
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+    .gridContainer {
+        flex-direction: column;
+    }
+    .drugBox {
+        flex: 1 0 100%;
+        width: 20rem;
+    }
+    .subtitle {
+        display: none;
+    }
+}
