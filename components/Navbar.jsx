@@ -34,7 +34,7 @@ function NavScrollExample() {
           <Nav className="me-auto my-2 my-lg-0">
             <NavDropdown title="Info" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
-              <NavDropdown.Item href="/donate">Donate</NavDropdown.Item>
+              <NavDropdown.Item href="https://patreon.com">Donate</NavDropdown.Item>
               <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Drugs" id="navbarScrollingDropdown">
