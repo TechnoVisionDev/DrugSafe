@@ -40,6 +40,7 @@ function NavScrollExample() {
             <NavDropdown title="Drugs" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/drugs">Search Drugs</NavDropdown.Item>
               <NavDropdown.Divider />
+              <NavDropdown.Item href="/drugs/alcohol">Alcohol</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/cannabis">Cannabis</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/methamphetamine">Methamphetamine</NavDropdown.Item>
             </NavDropdown>
