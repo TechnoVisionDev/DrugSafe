@@ -1,11 +1,76 @@
 .container {
     display: flex;
     flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 10rem;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 1rem;
 }
 
-.logo {
-    width: 15rem;
+.textContainer {
+    max-width: 40vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+}
+
+.image {
+    max-width: 18rem;
+    min-width: 13rem;
+}
+
+.header {
+    font-size: 3rem;
+}
+
+.subtitle {
+    color: #777;
+    font-size: 1.2rem;
+}
+
+.br {
+    display: none;
+}
+
+/* Responsive Design */
+@media (max-width: 820px) {
+    .container {
+        flex-direction: column-reverse;
+        align-items: center;
+        margin-top: 2rem;
+    }
+
+    .textContainer {
+        max-width: 80vw;
+    }
+
+    .header {
+        font-size: 2.5rem;
+    }
+
+    .subtitle {
+        font-size: 1rem;
+    }
+
+    .image {
+        max-width: 35vw;
+    }
+
+    .span {
+        display: none;
+    }
+
+    .br {
+        display: block;
+    }
 }
