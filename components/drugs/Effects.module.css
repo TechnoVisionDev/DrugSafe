@@ -3,4 +3,18 @@
     flex-direction: row;
     gap: 1rem;
     margin-bottom: 2rem;
+    flex: 1;
+}
+
+.effectsSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+}
+  
+@media screen and (max-width: 768px) {
+    .effectsSection {
+        flex-direction: column;
+    }
 }

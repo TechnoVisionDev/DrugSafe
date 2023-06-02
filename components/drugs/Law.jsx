@@ -13,6 +13,8 @@ const Law = ({legality, info}) => {
                 <li><b>Netherlands:</b> {legality.europe.netherlands}</li>
                 <li><b>Spain</b> {legality.europe.spain}</li>
                 <li><b>Russia</b> {legality.europe.russia}</li>
+                {legality.europe.italy && <li><b>Italy:</b> {legality.europe.italy}</li>}
+                {legality.europe.ireland && <li><b>Ireland:</b> {legality.europe.ireland}</li>}
             </ul>
             <h3 style={styles.subheader}>America</h3>
             <ul>
@@ -25,6 +27,7 @@ const Law = ({legality, info}) => {
                 <li><b>Hong Kong:</b> {legality.asia.hk}</li>
                 <li><b>Singapore:</b> {legality.asia.singapore}</li>
                 <li><b>Israel:</b> {legality.asia.israel}</li>
+                {legality.asia.thailand && <li><b>Thailand:</b> {legality.asia.thailand}</li>}
             </ul>
             <h3 style={styles.subheader}>Africa</h3>
             <ul>

@@ -4,45 +4,53 @@ import ListGroup from 'react-bootstrap/ListGroup';
 const Effects = ({ effects, info }) => {
     return (
         <section className={styles.effectsContainer}>
-            <h2>Effects</h2>
-            <p>{info.effects}</p>
-            <p>We have listed the most common effects of this drug. Please note that everyone can be affected differently, and this is not an exhaustive list. Remember, the likelihood of experiencing negative effects is much greater at high doses.</p>
-            <div className={styles.listContainer}>
-                <ListGroup as="ul">
-                    <ListGroup.Item as="li" key="positive" active>
-                        Positive Effects
-                    </ListGroup.Item>
-                    {effects.positive.map((effect, index) => <ListGroup.Item as="li" key={index}>{effect}</ListGroup.Item>)}
-                </ListGroup>
-                <ListGroup as="ul">
-                    <ListGroup.Item as="li" key="negative" disabled>
-                        Negative Effects
-                    </ListGroup.Item>
-                    {effects.negative.map((effect, index) => <ListGroup.Item as="li" key={index}>{effect}</ListGroup.Item>)}
-                </ListGroup>
-            </div>
+            { info.name === "Kratom" ? (
+                <>
+                    <h2>Effects at Low Doses (1-5g)</h2>
+                    <p>{info.effectsLow}</p>
+                    <div className={styles.effectsSection}>
+                        <EffectsList title="Positive Effects" effects={effects.lowDose.positive} pairEffectsLength={effects.lowDose.negative.length} />
+                        <EffectsList title="Negative Effects" effects={effects.lowDose.negative} isNegative pairEffectsLength={effects.lowDose.positive.length} />
+                    </div>
+                    <h2>Effects at High Doses (5g+)</h2>
+                    <p>{info.effectsHigh}</p>
+                    <div className={styles.effectsSection}>
+                        <EffectsList title="Positive Effects" effects={effects.highDose.positive} pairEffectsLength={effects.highDose.negative.length} />
+                        <EffectsList title="Negative Effects" effects={effects.highDose.negative} isNegative pairEffectsLength={effects.highDose.positive.length} />
+                    </div>
+                </>
+            ) : (
+                <>
+                    <h2>Effects</h2>
+                    <p>{info.effects}</p>
+                    <div className={styles.effectsSection}>
+                        <EffectsList title="Positive Effects" effects={effects.positive} pairEffectsLength={effects.negative.length} />
+                        <EffectsList title="Negative Effects" effects={effects.negative} isNegative pairEffectsLength={effects.positive.length} />
+                    </div>
+                </>
+            )}
+
             <h2 className={styles.header}>Comedown</h2>
             <p>{info.comedown}</p>
-            <div className={styles.listContainer}>
-                <ListGroup as="ul">
-                    <ListGroup.Item as="li" key="comedown" active>
-                        After Effects
-                    </ListGroup.Item>
-                    {effects.after.map((effect, index) => <ListGroup.Item as="li" key={index}>{effect}</ListGroup.Item>)}
-                </ListGroup>
-            </div>
+            <EffectsList title="After Effects" effects={effects.after} isNegative />
+
             <h2 className={styles.header}>Overdose</h2>
             <p>{info.overdose}</p>
-            <div className={styles.listContainer}>
-                <ListGroup as="ul">
-                    <ListGroup.Item as="li" key="overdose" disabled>
-                        Signs of Overdose
-                    </ListGroup.Item>
-                    {effects.overdose.map((effect, index) => <ListGroup.Item as="li" key={index}>{effect}</ListGroup.Item>)}
-                </ListGroup>
-            </div>
+            <EffectsList title="Signs of Overdose" effects={effects.overdose} isNegative />
         </section>
     );
 }
+
+const EffectsList = ({ title, effects, isNegative = false }) => (
+    <div className={styles.listContainer}>
+        <ListGroup as="ul">
+            <ListGroup.Item as="li" key={title} {...(isNegative ? {disabled: true} : {active: true})}>
+                {title}
+            </ListGroup.Item>
+            {effects && effects.map((effect, index) => <ListGroup.Item as="li" key={index}>{effect}</ListGroup.Item>)}
+        </ListGroup>
+    </div>
+);
+
 
 export default Effects;

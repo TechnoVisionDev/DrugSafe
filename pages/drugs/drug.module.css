@@ -134,5 +134,15 @@
         margin-left: 0;
         max-width: 100%;
     }
+
+    .drugAliases {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 380px) {
+    .drugAliases {
+        font-size: 0.9rem;
+    }
 }
 
