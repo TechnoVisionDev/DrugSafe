@@ -15,3 +15,50 @@
         gap: 0.5rem;
     }
 }
+
+.typeButton {
+    background: #e6e6e6;
+    border: solid 2px black;
+    padding: 1rem;
+    width: 14rem;
+    height: 3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+    font-weight: 500;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    color: black;
+}
+
+.typeButton:hover {
+    background: #ddd;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+}
+
+.typeButton.active {
+    background: #ccc;
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.typeContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 2rem;
+    margin-top: 2rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1000px) {
+    .typeContainer {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+}
