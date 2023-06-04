@@ -45,6 +45,7 @@ function NavScrollExample() {
               <NavDropdown.Item href="/drugs/benzodiazepines">Benzodiazepines</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/cannabis">Cannabis</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/kratom">Kratom</NavDropdown.Item>
+              <NavDropdown.Item href="/drugs/lsd">LSD</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/methamphetamine">Methamphetamine</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Guides" id="navbarScrollingDropdown">
