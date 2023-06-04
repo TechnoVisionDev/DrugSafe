@@ -35,7 +35,6 @@ function NavScrollExample() {
             <NavDropdown title="Info" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
               <NavDropdown.Item href="https://patreon.com">Donate</NavDropdown.Item>
-              <NavDropdown.Item href="/contact">Contact</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Drugs" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/drugs">Search Drugs</NavDropdown.Item>
@@ -47,6 +46,7 @@ function NavScrollExample() {
               <NavDropdown.Item href="/drugs/kratom">Kratom</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/lsd">LSD</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/mushrooms">Magic Mushrooms</NavDropdown.Item>
+              <NavDropdown.Item href="/drugs/mdma">MDMA</NavDropdown.Item>
               <NavDropdown.Item href="/drugs/methamphetamine">Methamphetamine</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Guides" id="navbarScrollingDropdown">

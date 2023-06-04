@@ -39,7 +39,7 @@ const Drugs = ({ drugs, initialSearchTerm }) => {
                 <Form.Control className={styles.search} value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} type="search" placeholder="Search"  aria-label="Search" />
                 <div className={styles.gridContainer}>
                     {filteredDrugs.map((drug) => (
-                        <Link href={`/drugs/${drug.name.toLowerCase()}`} className={styles.drugBox} key={drug.name}>
+                        <Link href={`/drugs/${drug.info.name.toLowerCase()}`} className={styles.drugBox} key={drug.name}>
                             <img src={drug.icon} alt={drug.name} className={styles.drugIcon} />
                             <h2 className={styles.drugName}>{drug.name}</h2>
                         </Link>
