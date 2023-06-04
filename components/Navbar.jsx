@@ -34,7 +34,7 @@ function NavScrollExample() {
           <Nav className="me-auto my-2 my-lg-0">
             <NavDropdown title="Info" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/about">About Us</NavDropdown.Item>
-              <NavDropdown.Item href="https://patreon.com" target="_blank" rel="noopener noreferrer">Donate</NavDropdown.Item>
+              <NavDropdown.Item href="/donate" target="_blank" rel="noopener noreferrer">Donate</NavDropdown.Item>
             </NavDropdown>
             <NavDropdown title="Drugs" id="navbarScrollingDropdown">
               <NavDropdown.Item href="/drugs">Search Drugs</NavDropdown.Item>
@@ -56,7 +56,7 @@ function NavScrollExample() {
               <NavDropdown.Item href="/guides/boofing">Boofing</NavDropdown.Item>
               <NavDropdown.Item href="/guides/intravenous">Intravenous</NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="https://discord.gg/s8CFunneAg" target="_blank" rel="noopener noreferrer">Discord</Nav.Link>
+            <Nav.Link href="/discord" target="_blank" rel="noopener noreferrer">Discord</Nav.Link>
           </Nav>
           <Form className="d-flex" onSubmit={handleSubmit}>
             <Form.Control
