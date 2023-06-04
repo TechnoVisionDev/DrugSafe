@@ -4,7 +4,7 @@ const Introduction = ({info, images}) => {
     return (
         <section>
             <div>
-                <h2 className={styles.header}>What is {info.name}?</h2>
+                <h2 className={styles.header}>{info.isPlural ? 'What are' : 'What is'} {info.name}?</h2>
                 {info.introduction.split('\n').map((c,index) => (<p key={index}>{c}</p>))}
                 <div className={styles.imageContainer}>
                     <img className={styles.image} src={images[0]} alt="Drug image #1" />
