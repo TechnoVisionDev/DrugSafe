@@ -45,6 +45,7 @@ const Dosage = ({routes, info}) => {
                     )
                 ))}
             </div>
+            <p><b>Source:</b> <a href="https://www.psychonautwiki.org"><em><u>www.psychonautwiki.org</u></em></a></p>
         </section>
     );
 }
