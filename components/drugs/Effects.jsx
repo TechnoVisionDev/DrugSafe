@@ -37,7 +37,7 @@ const Effects = ({ effects, info }) => {
             <h2 className={styles.header}>Overdose</h2>
             <p>{info.overdose}</p>
             <EffectsList title="Signs of Overdose" effects={effects.overdose} isNegative />
-            <p><b>Source:</b> <a href="https://www.psychonautwiki.org"><em><u>www.psychonautwiki.org</u></em></a></p>
+            <p><b>Source:</b> <a href="https://psychonautwiki.org/wiki/Main_Page" target="_blank" rel="noopener noreferrer"><em><u>www.psychonautwiki.org</u></em></a></p>
         </section>
     );
 }

@@ -66,6 +66,7 @@ const Testing = ({testing, info}) => {
                     </tbody>
                 </Table>
             </div>
+            <p><b>Source:</b> <a href="https://www.dancesafe.org" target="_blank" rel="noopener noreferrer"><em><u>www.dancesafe.org</u></em></a></p>
         </section>
     );
 }
