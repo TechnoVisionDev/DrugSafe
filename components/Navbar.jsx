@@ -26,7 +26,7 @@ function NavScrollExample() {
     <Navbar bg="dark" expand="lg" className={styles.navbarColor}>
       <Container fluid>
         <Navbar.Brand href="/">
-          <Image src="/assets/logo.png" alt="DrugSafe logo" width="50" height="50" />
+          <Image src="/assets/logo.png" alt="DrugSafe logo" width="40" height="40" />
           <span className={styles.home}>DrugSafe</span>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarScroll" />

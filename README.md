@@ -22,7 +22,6 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
 
 
 
@@ -30,7 +29,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/TechnoVisionDev/DrugSafe">
-    <img src="https://i.imgur.com/6IW7JTP.png" alt="Logo" width="80" height="80">
+    <img src="https://cdn-icons-png.flaticon.com/512/4320/4320344.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">DrugSafe</h3>
